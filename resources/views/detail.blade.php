@@ -121,7 +121,8 @@
 <section class="bg-white">
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24">
         <div class="grid lg:grid-cols-2 gap-10">
-            <div class="text-white py-5 sm:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(24, 192, 132,0.7),rgba(24, 192, 132,0.7)), url(./img/details/qoute_bg.png);">
+            <div class="text-white py-5 sm:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(24, 192, 132,0.7),rgba(24, 192, 132,0.7)), url({{ asset('assets/img/details/qoute_bg.png') }})
+;">
                 <div class="h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
                     <div class="space-y-3">
                         <p class="text-xl">Up to 15%</p>
@@ -133,7 +134,7 @@
                     <img class="md:scale-125" src="{{ URL("assets/img/details/qoute.png") }}" alt="qoute">
                 </div>
             </div>
-            <div class="text-[#110928] py-5 md:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(225, 200, 68, .6),rgba(225, 200, 68, .6)), url(./img/details/call_bg.png);">
+            <div class="text-[#110928] py-5 md:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(225, 200, 68, .6),rgba(225, 200, 68, .6)),  url({{ asset('assets/img/details/call_bg.png') }});">
                 <div class="h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
                     <div class="space-y-3">
                         <p class="text-xl">Got Stuck While <br class="md:block hidden">

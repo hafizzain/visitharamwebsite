@@ -105,7 +105,7 @@
     </div>
 </section>
 
-<section class="" style="background: url('{{ asset('asset/img/package/img1.png') }}');"
+<section class="" style="background: url('{{ asset('assets/img/package/img1.png') }}');"
 >
     <div class="container mx-auto px-5 lg:px-10 xl:px-24 py-8">
 
