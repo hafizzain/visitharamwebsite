@@ -6,16 +6,16 @@
 
 
 <header class="w-full bg-[#F5F2E3]">
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 sm:py-0 py-10 sm:h-[30vh] xl:h-[40vh] grid sm:grid-cols-8 gap-5 md:gap-8 sm:translate-y-[35%]">
-        <div class="col-span-4 lg:col-span-3 swiper headerSwiper pb-10">
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 md:py-0 py-10 md:h-[30vh] xl:h-[40vh] grid md:grid-cols-8 gap-5 md:gap-8 md:translate-y-[33%]">
+        <div class="md:col-span-4 lg:col-span-3 swiper headerSwiper pb-10">
             <div class="swiper-wrapper">
                 @foreach ($package->media as $media)
-                <img class="swiper-slide h-[300px] sm:h-full rounded-[20px] object-cover" src="{{ URL($media->file) }}" alt="img1">
+                <img class="swiper-slide h-[300px] md:h-full rounded-[20px] object-cover" src="{{ URL($media->file) }}" alt="img1">
                 @endforeach
             </div>
             <div class="swiper-pagination"></div>
         </div>
-        <div class="col-span-4 lg:col-span-5 w-full sm:pb-10">
+        <div class="md:col-span-4 lg:col-span-5 w-full md:pb-10">
             <div class="h-full w-full rounded-[20px] bg-white border border-[#D7D7D7] text-[#110928] p-5 lg:p-8 flex flex-col justify-between gap-2">
                 <h5 class="text-2xl lg:text-3xl font-semibold">{{$package->name}}</h5>
                 <p class="text-2xl lg:text-3xl">Price: <span class="text-[#09B175] font-semibold">£{{$package->price}}</span></p>
@@ -23,12 +23,15 @@
                     @foreach ($package->service as $service)
                     <div class="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center gap-2 items-center">
                         <img class="rounded-full w-20 h-20 lg:h-24 lg:w-24" src="{{ URL($service->image) }}" alt="img">
-                        <p>{{$service->name}}</p>
+                        <div class="flex flex-col gap-1">
+                            <p class="text-base font-bold lg:w-20">{{$service->name}}</p>
+                            <p class="text-sm">{{$service->name}}</p>
+                        </div>
                     </div>
                     @endforeach
                 </div>
                 <hr class="w-full border-[#CCCCCC]">
-                <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-5 lg:gap-10 py-0 text-sm">
+                <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-5 lg:gap-10 py-2 text-sm">
                     <div class="flex flex-col items-center gap-2">
                         <img src="{{ URL("assets/img/details/visa.svg") }}" alt="visa">
                         <p>Visa</p>
@@ -51,20 +54,17 @@
                     </div>
                 </div>
                 <hr class="w-full border-[#CCCCCC]">
-                <div class="flex items-center gap-5 sm:gap-2 md:gap-5 text-sm lg:text-base">
+                <div class="flex items-center gap-5 sm:gap-2 md:gap-5 text-sm lg:text-base pt-4">
                     <button class="rounded-full w-full border-2 border-black py-2.5 font-semibold"><i class="fa-solid fa-phone text-[#E1C844]"></i> +92 123 456 7890</button>
                     <button class="rounded-full w-full border-2 border-[#09B175] bg-[#09B175] text-white py-2.5 font-semibold">Book Now</button>
                 </div>
             </div>
         </div>
-
     </div>
 </header>
 
 <section>
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-2 sm:pt-[24rem] md:pt-80 xl:pt-72">
-
-
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-2 md:pt-80 xl:pt-72">
         <div class="shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
@@ -118,17 +118,153 @@
     <div class="container mx-auto px-5 sm:px-10 xl:px-24 py-2 pt-16">
         <h2 class="text-[#110928] font-bold text-3xl text-center">Trusted Hajj and Umrah Travel Agency in the UK</h2>
         <div class="md:px-5 xl:px-20 grid grid-cols-2 place-items-center md:flex items-center justify-between flex-wrap md:flex-nowrap md:gap-5 xl:gap-10 py-16">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust1.png") }}" alt="trust1">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust2.png") }}" alt="trust2">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust3.png") }}" alt="trust3">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust4.png") }}" alt="trust4">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust1.png') }}" alt="trust1">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust2.png') }}" alt="trust2">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust3.png') }}" alt="trust3">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust4.png') }}" alt="trust4">
         </div>
     </div>
 </section>
-<section class="bg-white">
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24">
-        <div class="grid lg:grid-cols-2 gap-10">
-            <div class="text-white py-5 sm:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(24, 192, 132,0.7),rgba(24, 192, 132,0.7)), url(./img/details/qoute_bg.png);">
+
+<section>
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24 pt-10 md:pt-0">
+        
+        <div class="flex flex-col gap-10">
+            <div class="bg-[#F3EED2] rounded-xl lg:rounded-[20px] px-10 py-5 pt-16">
+                <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">7 Nights 5 Star Umrah Package</h2>
+                <div class="py-5 space-y-5 md:space-y-10">
+                    <div class="bg-white grid gap-5 md:gap-0 md:grid-cols-2 rounded-xl lg:rounded-[20px] p-5 lg:p-8">
+                        <ul class="space-y-5 border-b md:border-b-0 pb-5 md:pb-0 md:border-r border-[#D3D2C9]">
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Visa</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Ground Transfers Can be Included on Extra Cost</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>All Packages are Based on 3-4 People Sharing</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Return Flights</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Direct Flights Can be Arranged on Special Request</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-5 flex flex-col justify-between md:pl-5 lg:pl-8">
+                            <li class='flex items-start gap-5'>
+                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/wifi.svg') }}" alt="wifi">
+                                <div>
+                                    <h6 class='text-base font-bold mb-2'>Free Wi-Fi</h6>
+                                    <p class='text-base'>Enjoy full access to free Wi-Fi right in your room and connect with your loved ones.</p>
+                                </div>
+                            </li>
+                            
+                            <li class='flex items-start gap-5'>
+                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/ac.svg') }}" alt="ac">
+                                <div>
+                                    <h6 class='text-base font-bold mb-2'>A/C Rooms</h6>
+                                    <p class='text-base'>All the rooms, no matter single or quad shared, have air-conditioning installed.</p>
+                                </div>
+                            </li>
+                        
+                        </ul>
+                    </div>
+                    <div class="grid gap-5 md:gap-0 md:grid-cols-2">
+                        <div class="swiper umrahPackageSwiper1 pb-10">
+                            <div class="swiper-wrapper">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="md:p-5 lg:p-8">
+                            <h5 class="text-2xl font-bold">Conrad Makkah</h5>
+                            <div class="space-y-7 py-2 lg:w-3/4">
+                                <p>The 5-star Elaf Kinda Hotel is adjacent to King Abdul Aziz's stop facing the Holy Mosque between King Abdul Aziz Gat</p>
+                                <p>Rooms at Elaf Kinda Hotel feature dark wood furnishings, printed carpeted floors and a tea / coffee maker. All suites have a seating area with a sofa, as well as speakers connected directly to the Haram.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-[#F3EED2] rounded-xl lg:rounded-[20px] px-10 py-5 pt-16">
+                <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">7 Nights 5 Star Umrah Package</h2>
+                <div class="py-5 space-y-5 md:space-y-10">
+                    <div class="bg-white grid gap-5 md:gap-0 md:grid-cols-2 rounded-xl lg:rounded-[20px] p-5 lg:p-8">
+                        <ul class="space-y-5 border-b md:border-b-0 pb-5 md:pb-0 md:border-r border-[#D3D2C9]">
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Visa</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Ground Transfers Can be Included on Extra Cost</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>All Packages are Based on 3-4 People Sharing</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Return Flights</span>
+                            </li>
+                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                                </svg> <span class='text-base'>Direct Flights Can be Arranged on Special Request</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-5 flex flex-col justify-between md:pl-5 lg:pl-8">
+                            <li class='flex items-start gap-5'>
+                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/wifi.svg') }}" alt="wifi">
+                                <div>
+                                    <h6 class='text-base font-bold mb-2'>Free Wi-Fi</h6>
+                                    <p class='text-base'>Enjoy full access to free Wi-Fi right in your room and connect with your loved ones.</p>
+                                </div>
+                            </li>
+                            
+                            <li class='flex items-start gap-5'>
+                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/ac.svg') }}" alt="ac">
+                                <div>
+                                    <h6 class='text-base font-bold mb-2'>A/C Rooms</h6>
+                                    <p class='text-base'>All the rooms, no matter single or quad shared, have air-conditioning installed.</p>
+                                </div>
+                            </li>
+                        
+                        </ul>
+                    </div>
+                    <div class="grid gap-5 md:gap-0 md:grid-cols-2">
+                        <div class="swiper umrahPackageSwiper2 pb-10">
+                            <div class="swiper-wrapper">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="md:p-5 lg:p-8">
+                            <h5 class="text-2xl font-bold">El Eifman Hotel</h5>
+                            <div class="space-y-7 py-2 lg:w-3/4">
+                                <p>The 5-star Elaf Kinda Hotel is adjacent to King Abdul Aziz's stop facing the Holy Mosque between King Abdul Aziz Gat</p>
+                                <p>Rooms at Elaf Kinda Hotel feature dark wood furnishings, printed carpeted floors and a tea / coffee maker. All suites have a seating area with a sofa, as well as speakers connected directly to the Haram.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-10 grid lg:grid-cols-2 gap-10">
+            <div class="text-white py-5 sm:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(24, 192, 132,0.7),rgba(24, 192, 132,0.4)), url('{{ URL('assets/img/details/qoute_bg.png') }}');">
                 <div class="h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
                     <div class="space-y-3">
                         <p class="text-xl">Up to 15%</p>
@@ -137,10 +273,10 @@
                     <button class="w-fit px-8 py-3 bg-[#110928] rounded-full">Get Quote</button>
                 </div>
                 <div>
-                    <img class="md:scale-125" src="{{ URL("assets/img/details/qoute.png") }}" alt="qoute">
+                    <img class="md:scale-125" src="{{ URL('assets/img/details/qoute.png') }}" alt="qoute">
                 </div>
             </div>
-            <div class="text-[#110928] py-5 md:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(225, 200, 68, .6),rgba(225, 200, 68, .6)), url(./img/details/call_bg.png);">
+            <div class="text-[#110928] py-5 md:py-8 px-5 md:px-10 rounded-xl md:rounded-[20px] flex flex-col sm:flex-row items-center justify-between gap-10 !bg-contain" style="background: linear-gradient(rgba(225, 200, 68, .6),rgba(225, 200, 68, .4)), url('{{ URL('assets/img/details/call_bg.png') }}');">
                 <div class="h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
                     <div class="space-y-3">
                         <p class="text-xl">Got Stuck While <br class="md:block hidden">
@@ -150,10 +286,11 @@
                     <button class="text-white w-fit px-8 py-3 bg-[#110928] rounded-full">Call us now</button>
                 </div>
                 <div>
-                    <img class="md:scale-125" src="{{ URL("assets/img/details/call.png") }}" alt="qoute">
+                    <img class="md:scale-125" src="{{ URL('assets/img/details/call.png') }}" alt="qoute">
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -209,7 +346,7 @@
     </div>
 </section>
 
-<section class="bg-white border-b border-[#D0D0D0]">
+<section class="bg-white">
     <div class="container mx-auto px-5 lg:px-10 xl:px-24 py-8">
 
         <!-- grid grid-cols-2 gap-10 -->
@@ -235,7 +372,7 @@
                 @foreach ($packages as $package)
                     <div class="swiper-slide text-[#110928] flex flex-col gap-5 items-center bg-white border border-[#C8C8C8] rounded-[20px] p-4 lg:p-7">
                         <div class="py-4 px-4 md:px-8 font-semibold text-2xl space-x-2" style="background: url('{{ asset('assets/img/header/bg.png') }}') no-repeat center/contain;">
-                            <span>${{$package->price}}</span><span class="text-sm">{{$package->nights}} Nights</span>
+                            <span>${{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
                         </div>
                         <h4 class="text-2xl md:text-3xl font-semibold text-center">{{$package->name}}</h4>
                         <div class="flex items-center border-b border-[#D9D9D9]">
@@ -263,7 +400,7 @@
 </section>
 
 
-
+    @include('weblayouts.partner_hotels')
     @include('weblayouts.partner')
     @include('weblayouts.newsletter')
 

@@ -15,6 +15,7 @@
 
 
     @include('weblayouts.about')
+    @include('weblayouts.partner_hotels')
     @include('weblayouts.partner')
     @include('weblayouts.newsletter')
 

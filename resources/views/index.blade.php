@@ -4,9 +4,9 @@
 @endsection
 @section('content')
 
-<header class="w-full" style="background: url('{{ asset('assets/img/header/header.png') }}')
+<header class="w-full" style="background: url('{{ URL('assets/img/header/header.png') }}')
  no-repeat center/cover;">
-    <div class="flex justify-center items-center py-24 xl:pt-10 xl:pb-28 2xl:pb-32">
+    <div class="flex justify-center items-center py-24 xl:pt-10 xl:pb-24 2xl:pb-28">
         <div class="flex flex-col items-center gap-5">
             <div class="py-4 px-8 font-semibold text-2xl" style="background: url('{{ asset('assets/img/header/bg.png') }}') no-repeat center/contain;">
                 7 Nights
@@ -30,7 +30,7 @@
                     <p class="font-bold text-lg md:text-3xl">£1275</p>
                 </div>
                 <div class="flex flex-col gap-2 text-center">
-                    <img class="object-cover" src="{{ URL("assets/img/partner/partner.png") }}" alt="partner">
+                    <img class="object-cover" src="{{ URL('assets/img/partner/partner.png') }}" alt="partner">
                     <hr class="bg-black border-black">
                     <a href="#" class="text-xl font-semibold">+92 123 456 7890</a>
                 </div>
@@ -43,7 +43,7 @@
 <section>
     <div class="container mx-auto px-5 lg:px-10 xl:px-24 py-2">
 
-        <div class="-translate-y-20 shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
+        <div class="translate-y-[-4.25rem] shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
             </div>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="flex gap-5 sm:gap-0 sm:flex-nowrap flex-wrap items-center justify-between">
                     <div class="flex items-center">
-                        <input id="default-checkbox" type="checkbox" value="" class="sm:w-4 sm:h-4 h-6 w-6  bg-[#D3DCDC] border-[#D3DCDC] rounded focus:ring-blue-500 ">
+                        <input id="default-checkbox" type="checkbox" value="" class="!shadow-none sm:w-4 sm:h-4 h-6 w-6  bg-[#F9FAFB] border border-[#D1D5DB] rounded text-blue-600">
                         <label for="default-checkbox" class="ms-2 text-sm font-normal text-black">I want deals via phone calls and promotions through emails.</label>
                     </div>
                     <button class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>
@@ -97,16 +97,15 @@
     <div class="container mx-auto px-5 sm:px-10 xl:px-24 py-2">
         <h2 class="text-[#110928] font-bold text-3xl text-center">Trusted Hajj and Umrah Travel Agency in the UK</h2>
         <div class="md:px-5 xl:px-20 grid grid-cols-2 place-items-center md:flex items-center justify-between flex-wrap md:flex-nowrap md:gap-5 xl:gap-10 py-16">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust1.png") }}" alt="trust1">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust2.png") }}" alt="trust2">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust3.png") }}" alt="trust3">
-            <img class="xl:scale-100 scale-75" src="{{ URL("assets/img/trusted/trust4.png") }}" alt="trust4">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust1.png') }}" alt="trust1">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust2.png') }}" alt="trust2">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust3.png') }}" alt="trust3">
+            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust4.png') }}" alt="trust4">
         </div>
     </div>
 </section>
 
-<section class="" style="background: url('{{ asset('asset/img/package/img1.png') }}');"
->
+<section class="" style="background: url('{{ URL('assets/img/package/img1.png') }}');">
     <div class="container mx-auto px-5 lg:px-10 xl:px-24 py-8">
 
         <!-- grid grid-cols-2 gap-10 -->
@@ -132,7 +131,7 @@
                 @foreach ($packages as $package)
                 <div class="swiper-slide text-[#110928] flex flex-col gap-5 items-center bg-white border border-[#C8C8C8] rounded-[20px] p-4 lg:p-7">
                     <div class="py-4 px-4 md:px-8 font-semibold text-2xl space-x-2" style="background: url('{{ asset('assets/img/header/bg.png') }}') no-repeat center/contain;">
-                        <span>${{$package->price}}</span><span class="text-sm">{{$package->nights}} Nights</span>
+                        <span>${{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
                     </div>
                     <h4 class="text-2xl md:text-3xl font-semibold text-center">{{$package->name}}</h4>
                     <div class="flex items-center border-b border-[#D9D9D9]">
@@ -159,9 +158,92 @@
     </div>
 </section>
 
+<section>
+    <div class="container mx-auto px-5 lg:px-10 xl:px-24 py-8">
+
+        <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-5 text-[#110928]">
+             <a href="#" class="relative group activeLink">Umrah Packages<span class="absolute bottom-[-5px] left-0 w-0 h-[3px] bg-[#E1C844] transition-all origin-left"></span></a>
+             <a href="#" class="relative group">Umrah Packages<span class="absolute bottom-[-5px] left-0 w-0 h-[3px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a>
+             <a href="#" class="relative group">Umrah Packages<span class="absolute bottom-[-5px] left-0 w-0 h-[3px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10 py-10 pt-20">
+
+            <div class="text-[#110928] py-5 sm:py-8 px-5 2xl:px-10 rounded-xl md:rounded-[20px] flex flex-col-reverse sm:flex-row items-center justify-between gap-10 sm:gap-0 2xl:gap-10 !bg-contain" style="background: linear-gradient(106.65deg, #E2CD58 1.47%, #F3EED2 44.02%, #F8E8B0 99.29%);">
+                <div class="h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
+                    <div class="space-y-1">
+                        <h6 class="font-bold text-2xl">14 Nights 5 Star Cheap <br class="hidden 2xl:block"> Umrah Package</h6>
+                        <p class="text-lg">Conrad Makkah</p>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                            </svg> <span class='text-sm'>Visa & Flights-Included</span>
+                        </li>
+                        <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                            </svg> <span class='text-sm'>5 Star Hotel in Makkah</span>
+                        </li>
+                        <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                            </svg> <span class='text-sm'>5 Star Hotel in Madin</span>
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-between w-full sm:w-auto lg:w-full gap-3 2xl:gap-3">
+                        <a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="space-x-2 font-semibold text-sm"><i class="fa-solid fa-phone text-[#09B175]"></i> +92 123 456 7890</a>
+                        <button class="w-fit px-4 py-2 text-white bg-[#110928] text-sm rounded-full">View Details</button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img class="h-72 sm:h-56 2xl:h-72 w-72 2xl:w-64" src="{{ URL('assets/img/package/package1.png') }}" alt="qoute">
+                    <div class="absolute top-0 right-0 h-20 w-20 2xl:h-24 2xl:w-24 text-sm text-white bg-[#09B175] rounded-full border-[3px] border-white flex flex-col items-center justify-center">
+                        <p class="font-bold text-lg 2xl:text-[20px]">£1275</p>
+                        <p class="text-sm">14 Nights</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-white rounded-xl md:rounded-[20px] flex flex-col-reverse sm:flex-row items-center justify-between gap-5 sm:gap-0 2xl:gap-10 bg-cover bg-no-repeat" style="background-image: linear-gradient(130.65deg, rgba(0, 47, 28, 0.9) 18.73%, rgba(0, 47, 28, 0.4) 73.1%), url('{{ URL('assets/img/package/bg2.png') }}');">
+                <div class="py-5 sm:py-8 px-5 sm:pl-5 2xl:pl-10 h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
+                    <div class="space-y-1">
+                        <h6 class="font-bold text-2xl">10 Nights 5 Star Cheap Umrah Package</h6>
+                        <p class="text-lg">Conrad Makkah</p>
+                    </div>
+                    <ul class="space-y-2">
+                        <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                            </svg> <span class='text-sm'>Visa & Flights-Included</span>
+                        </li>
+                        <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                            </svg> <span class='text-sm'>5 Star Hotel in Makkah</span>
+                        </li>
+                        <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
+                            </svg> <span class='text-sm'>5 Star Hotel in Madin</span>
+                        </li>
+                    </ul>
+                    <div class="flex items-center justify-between w-full sm:w-auto lg:w-full gap-3 2xl:gap-3">
+                        <a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="space-x-2 font-semibold text-sm"><i class="fa-solid fa-phone text-[#09B175]"></i> +92 123 456 7890</a>
+                        <button class="w-fit px-4 py-2 text-white border-white border-2 text-sm rounded-full">View Details</button>
+                    </div>
+                </div>
+                <div class="relative self-end sm:self-start">
+                    <img class="2xl:h-80 h-72 sm:h-60 w-64 2xl:w-[27rem] rounded-tr-xl md:rounded-tr-[20px]" src="{{ URL('assets/img/package/package2.png') }}" alt="qoute">
+                    <div style="background: url('{{ URL('assets/img/package/Vector.png') }}');" class="!bg-no-repeat !bg-contain absolute top-[40%] -left-5 2xl:left-0 w-24 h-24 2xl:h-32 2xl:w-32 text-sm text-[#110928] flex flex-col items-center justify-start pt-4 2xl:pt-7">
+                        <p class="font-bold text-lg 2xl:text-[20px]">£1275</p>
+                        <p class="">14 Nights</p>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+    </div>
+</section>
 
 
 @include('weblayouts.about')
+@include('weblayouts.partner_hotels')
 @include('weblayouts.partner')
 @include('weblayouts.newsletter')
 

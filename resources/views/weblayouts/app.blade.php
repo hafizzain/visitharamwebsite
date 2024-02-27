@@ -122,6 +122,13 @@
         }
     }
 
+    .activeLink{
+        font-weight: 700;
+    }
+    .activeLink > span{
+        width: 100%;
+    }
+
 </style>
 <body>
 
@@ -129,10 +136,21 @@
 
     <div class="container mx-auto px-5 sm:px-10 xl:px-24 py-2 flex justify-between items-center">
         <ul class="flex-1 hidden md:flex gap-x-2 md:gap-x-5 items-center flex-wrap text-xs sm:text-sm">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Umrah Packages</a></li>
-            <li><a href="/">December Umrah Packages</a></li>
-            <li><a href="/">Ramadan Umrah Packages</a></li>
+            <li><a href="/" class="relative group">Home<span class="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a></li>
+            <li class="relative group h-full"><a href="#" class="group flex items-baseline">Umrah Packages <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="#E1C844" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg><span class="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a>
+                <div id="dropdownNavbar" class="absolute top-full left-0 z-10 hidden group-hover:block font-normal w-60">
+                    <div class="bg-transparent h-4">
+                    </div>
+                    <ul class="p-2 text-sm text-black bg-white font-normal rounded-lg shadow-md space-y-2">
+                        <li><a href="#" class="block p-2 rounded-lg hover:bg-[#F3EED2]">Umrah packages 2024</a></li>
+                        <li><a href="#" class="block p-2 rounded-lg hover:bg-[#F3EED2]">5 Star Umrah packages 2024</a></li>
+                        <li><a href="#" class="block p-2 rounded-lg hover:bg-[#F3EED2]">4 Star Umrah packages 2024</a></li>
+                        <li><a href="#" class="block p-2 rounded-lg hover:bg-[#F3EED2]">3 Star Umrah packages 2024</a></li> 
+                    </ul>
+                </div>
+            </li>
+            <li><a href="/" class="relative group flex items-baseline">December Umrah Packages <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="#E1C844" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg><span class="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a></li>
+            <li><a href="/" class="relative group flex items-baseline">Ramadan Umrah Packages <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="#E1C844" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg><span class="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a></li>
         </ul>
         <a class="md:hidden" href="#" id="hamburger"><i class="fa-solid fa-bars text-white text-2xl"></i></a>
         <a href="#" class="rounded-full bg-[#E1C845] px-2.5 py-1 md:px-3.5 md:py-1.5 text-sm font-semibold shadow-sm flex items-center gap-1 sm:gap-2"><p class="uppercase text-[#180F34]">Beat my Quote</p> <p class="flex justify-center items-center bg-white rounded-full w-8 h-8 text-[#110928]"><i class="fa-solid fa-arrow-right"></i></p></a>
@@ -153,12 +171,23 @@
             </div>
             <div class="mt-6 flow-root">
                 <div class="-my-6 divide-y divide-gray-500/10">
-                    <div class="space-y-2 py-6 text-black">
+                    <ul class="space-y-2 py-6 text-black">
                         <a href="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-gray-50">Home</a>
-                        <a href="/details" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-gray-50">Umrah Packages </a>
+                        <li class="relative group h-full"><a href="#" class="-mx-3 rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-gray-50 group flex items-baseline">Umrah Packages <svg class="group-hover:rotate-0 rotate-180 transition-all w-3 h-3 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="#E1C844" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg></a>
+                            <div id="dropdownNavbar" class="z-10 hidden group-hover:block font-normal w-full">
+                                <div class="bg-transparent h-2">
+                                </div>
+                                <ul class="text-sm text-gray-700">
+                                    <li><a href="#" class="-mx-3 rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50 group flex items-baseline">Umrah Packages</a></li>
+                                    <li><a href="#" class="-mx-3 rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50 group flex items-baseline">5 Star Umrah packages 2024</a></li>
+                                    <li><a href="#" class="-mx-3 rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50 group flex items-baseline">4 Star Umrah packages 2024</a></li>
+                                    <li><a href="#" class="-mx-3 rounded-lg px-3 py-2 font-semibold leading-7  hover:bg-gray-50 group flex items-baseline">3 Star Umrah packages 2024</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-gray-50">December Umrah Packages</a>
                         <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  hover:bg-gray-50">Ramadan Umrah Packages</a>
-                    </div>
+                    </ul>
 
                 </div>
             </div>
@@ -277,6 +306,73 @@
         },
 
     });
+
+    var headerSwiper = new Swiper(".headerSwiper", {
+      // loop: true,
+      // autoplay: {
+      //   delay: 2500,
+      //   disableOnInteraction: false,
+      // },
+      slidesPerView: 1,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+
+  });
+    
+    var customerSwiper = new Swiper(".customerSwiper", {
+    // loop: true,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
+    slidesPerView: 1,
+      spaceBetween: 10,
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        770: {
+          slidesPerView: 2,
+          spaceBetween: 30,
+        },
+      },
+    pagination: {
+    el: ".swiper-pagination1",
+    dynamicBullets: true,
+    },
+  });
+    var swiper = new Swiper(".umrahPackageSwiper1", {
+    // loop: true,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
+    slidesPerView: 1,
+      spaceBetween: 10,
+     
+    pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+    },
+  });
+    var swiper = new Swiper(".umrahPackageSwiper2", {
+    // loop: true,
+    // autoplay: {
+    //   delay: 2500,
+    //   disableOnInteraction: false,
+    // },
+    slidesPerView: 1,
+      spaceBetween: 10,
+     
+    pagination: {
+    el: ".swiper-pagination",
+    dynamicBullets: true,
+    },
+  });
 
 
     // SideBar

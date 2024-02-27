@@ -1,4 +1,4 @@
-<section>
+<section class="border-t border-[#D0D0D0]">
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-10 sm:py-24">
         <div class="flex flex-col items-center gap-10 md:px-5 xl:px-20">
             <div class="text-center text-[#110928]">

@@ -13,22 +13,22 @@
 <section>
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-10">
         <div class="grid lg:grid-cols-10 py-5 gap-5">
-            <div class='col-span-5 lg:col-span-4 flex flex-col gap-10 p-5 lg:p-8 rounded-xl md:rounded-[20px] bg-[#110928] text-white'>
+            <div class='col-span-5 lg:col-span-4 flex flex-col gap-10 p-5 lg:p-8 rounded-xl md:rounded-[20px] text-white !bg-no-repeat !bg-bottom lg:!bg-center !bg-cover lg:!bg-contain 2xl:!bg-cover' style="background: url('{{ URL('assets/img/contact/contact-bg.png') }}');">
                 <div class='flex gap-5 items-start'>
                     <div>
                         <h4 class='font-semibold text-[1.7rem]'>Contact Information</h4>
                     </div>
                 </div>
                 <div class='flex gap-5 items-start'>
-                    <img src="{{ URL("assets/img/contact/phone.svg") }}" alt="phone">
+                    <img src="{{ URL('assets/img/contact/phone.svg') }}" alt="phone">
                     <p>+92 123 456 7890</p>
                 </div>
                 <div class='flex gap-5 items-start'>
-                    <img src="{{ URL("assets/img/contact/sharp.svg") }}" alt="email">
+                    <img src="{{ URL('assets/img/contact/sharp.svg') }}" alt="email">
                     <p>info@visitharam.co.uk</p>
                 </div>
                 <div class='flex gap-5 items-start'>
-                    <img src="{{ URL("assets/img/contact/location.svg") }}" alt="location">
+                    <img src="{{ URL('assets/img/contact/location.svg') }}" alt="location">
                     <p>4 Novella Block, Eichmannview, Massachusetts 02156 United States</p>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                 <div class="flex flex-col gap-5 lg:gap-10">
                     <h4 class="text-[1.7rem] font-semibold">Any question or remarks? Just write us <br class="hidden lg:block"> a message!</h4>
 
-                    <form action="{{ route('form.submit') }}" method="POST" class="flex flex-col gap-10 pt-10">
+                    <form action="{{ route('form.submit') }}" method="POST" class="flex flex-col gap-5 2xl:gap-10 pt-10">
                         @csrf
                         <div class='grid md:grid-cols-2 items-end gap-10 lg:gap-5'>
                             <div class="relative h-fit z-0 w-full group">
@@ -61,7 +61,7 @@
                         </div>
 
                         <div class=" relative h-full z-0 w-full group">
-                            <textarea rows="7" type="text" name="message" id="message" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required></textarea>
+                            <textarea placeholder="Write your message.." rows="7" type="text" name="message" id="message" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required></textarea>
                             <label for="message" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-black peer-placeholder-shown:scale-90 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
                         </div>
 
