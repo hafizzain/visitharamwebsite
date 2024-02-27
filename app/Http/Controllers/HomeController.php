@@ -29,7 +29,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $packages = Package::count();
+        $services = Service::count();
+        $facilities = Facility::count();
+        return view('home', compact('packages', 'services', 'facilities'));
     }
 
 

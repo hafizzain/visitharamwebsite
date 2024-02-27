@@ -238,7 +238,7 @@
                                     <img class="rounded-full" src="{{ URL($service->image) }}" alt="card1">
                                     <div class="text-center">
                                         <h6 class="font-medium md:text-xl">{{$service->name}}</h6>
-                                        <p class="text-sm">Conrad Makkah</p>
+{{--                                        <p class="text-sm">Conrad Makkah</p>--}}
                                     </div>
                                 </div>
                             @endforeach
