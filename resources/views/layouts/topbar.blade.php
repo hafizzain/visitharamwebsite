@@ -4,8 +4,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <img src="{{ URL("assets/images/onemovelogo.png") }}" />
-
+                <img src="{{ URL("assets/img/logo.svg") }}" />
             </div>
 
     </div>
