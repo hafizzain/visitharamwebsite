@@ -19,6 +19,8 @@ return new class extends Migration
             $table->unsignedBigInteger('package_id')->nullable();
             $table->foreign('package_id')->references('id')->on('packages')->onDelete('cascade');
             $table->tinyInteger('status')->nullable()->default(1);
+            $table->text('image')->nullable();
+
             $table->timestamps();
         });
     }

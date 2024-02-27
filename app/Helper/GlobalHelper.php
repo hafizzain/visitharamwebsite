@@ -56,6 +56,10 @@ class GlobalHelper
                 } elseif (in_array($ext, ['pdf', 'docx', 'xls', 'csv', 'xlsx', 'txt', 'text', 'docx'])) {
                     $url = $destinationDirectory . '/' . $fileName;
                     $file->move($destinationPath, $fileName);
+                } elseif ($ext === 'svg') {
+                // Handle SVG differently, as it doesn't need image processing
+                $url = $destinationDirectory . '/' . $fileName;
+                $file->move($destinationPath, $fileName);
                 } else {
                     $url = '';
                 }

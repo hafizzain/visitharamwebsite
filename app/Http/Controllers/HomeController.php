@@ -159,6 +159,10 @@ class HomeController extends Controller
         $data = Facility::with('package')->orderBy('created_at', 'desc')->get();
         if ($request->ajax()) {
             return DataTables::of($data)
+                ->addColumn('image', function ($data) {
+                    $imageUrl = asset( $data->image); // Adjust the path accordingly
+                    return '<img src="' . $imageUrl . '" alt="Image" class="img-thumbnail" width="50" height="50">';
+                })
                 ->addColumn('package', function ($data) {
                     $package = $data->package->name;
                     return $package;
@@ -173,10 +177,12 @@ class HomeController extends Controller
                 ->addColumn('actions', function ($data) {
                     $actions = '<div class=" btn-group-sm" role="group" aria-label="Basic example">
                     <a  href="' . route('edit.facility', $data->id) . '" class="btn btn-outline-primary btn-sm">Edit</a>
+                                        <button class="btn btn-outline-danger btn-sm delete-facility" data-id="' . $data->id . '">Delete</button>
+
                     </div>';
                     return $actions;
                 })
-                ->rawColumns(['package', 'status', 'actions'])
+                ->rawColumns(['image','package', 'status', 'actions'])
                 ->make(true);
         }
         return view('facility.index');
@@ -191,6 +197,8 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'package_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,svg,jpg,gif|max:2048'
+
         ]);
 
         if ($validator->fails()) {
@@ -198,6 +206,18 @@ class HomeController extends Controller
         }
 
         $facility = new Facility();
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'facility_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $facility->image;
+        }
+        $facility->image = $image;
         $facility->name = $request->name;
         $facility->package_id = $request->package_id;
         if (!empty($request->status) && $request->status == 'on') {
@@ -260,7 +280,9 @@ class HomeController extends Controller
                 ->addColumn('actions', function ($data) {
                     $actions = '<div class=" btn-group-sm" role="group" aria-label="Basic example">
                     <a  href="' . route('edit.service', $data->id) . '" class="btn btn-outline-primary btn-sm">Edit</a>
-                    </div>';
+                                       <button class="btn btn-outline-danger btn-sm delete-service" data-id="' . $data->id . '">Delete</button>
+
+                                            </div>';
                     return $actions;
                 })
                 ->rawColumns(['image','package', 'status', 'actions'])

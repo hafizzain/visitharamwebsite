@@ -20,35 +20,28 @@
                 <h5 class="text-2xl lg:text-3xl font-semibold">{{$package->name}}</h5>
                 <p class="text-2xl lg:text-3xl">Price: <span class="text-[#09B175] font-semibold">£{{$package->price}}</span></p>
                 <div class="grid grid-cols-2 gap-5 py-2 text-sm lg:text-base">
+                    @php $counter = 0; @endphp
                     @foreach ($package->service as $service)
-                    <div class="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center gap-2 items-center">
-                        <img class="rounded-full w-20 h-20 lg:h-24 lg:w-24" src="{{ URL($service->image) }}" alt="img">
-                        <p>{{$service->name}}</p>
-                    </div>
+                        @if ($counter < 2)
+                            <div class="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center gap-2 items-center">
+                                <img class="rounded-full w-20 h-20 lg:h-24 lg:w-24" src="{{ URL($service->image) }}" alt="img">
+                                <p>{{ $service->name }}</p>
+                            </div>
+                            @php $counter++; @endphp
+                        @else
+                            @break
+                        @endif
                     @endforeach
+
                 </div>
                 <hr class="w-full border-[#CCCCCC]">
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-5 lg:gap-10 py-0 text-sm">
+                    @foreach ($package->facility as $facility)
                     <div class="flex flex-col items-center gap-2">
-                        <img src="{{ URL("assets/img/details/visa.svg") }}" alt="visa">
-                        <p>Visa</p>
+                        <img src="{{ URL($facility->image) }}" alt="visa">
+                        <p>{{ $facility->name }}</p>
                     </div>
-                    <div class="flex flex-col items-center gap-2">
-                        <img src="{{ URL("assets/img/details/flight.svg") }}" alt="Flight">
-                        <p>Flight</p>
-                    </div>
-                    <div class="flex flex-col items-center gap-2">
-                        <img src="{{ URL("assets/img/details/transport.svg") }}" alt="Transport">
-                        <p>Transport</p>
-                    </div>
-                    <div class="flex flex-col items-center gap-2">
-                        <img src="{{ URL("assets/img/details/makka.svg") }}" alt="Makkah">
-                        <p>Makkah</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <img src="{{ URL("assets/img/details/makka.svg") }}" alt="Medina">
-                        <p>Medina</p>
-                    </div>
+                    @endforeach
                 </div>
                 <hr class="w-full border-[#CCCCCC]">
                 <div class="flex items-center gap-5 sm:gap-2 md:gap-5 text-sm lg:text-base">

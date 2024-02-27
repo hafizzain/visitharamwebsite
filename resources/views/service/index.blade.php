@@ -59,5 +59,40 @@
                 {data: 'actions', name: 'actions'},
             ]
         });
+
+
+    $('#datatable').on('click', '.delete-service', function () {
+        var packageId = $(this).data('id');
+
+        if (confirm('Are you sure you want to delete this service?')) {
+            $.ajax({
+                url: '/delete/service/' + packageId,
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    dataTable.ajax.reload();
+                    showSnackbar('Service deleted successfully.');
+                    setTimeout(function () {
+                        location.reload(); // Reload the window after a short delay
+                    }, 2000); // 2000 milliseconds (adjust as needed)
+                },
+                error: function (error) {
+                    location.reload();
+                }
+            });
+        }
+    });
+
+    function showSnackbar(message, type = 'success') {
+        Snackbar.show({
+            text: message,
+            pos: 'bottom-center',
+            backgroundColor: type === 'success' ? '#28a745' : '#dc3545',
+            actionTextColor: '#fff'
+        });
+    }
+
 </script>
 @endsection

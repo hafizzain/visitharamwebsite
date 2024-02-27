@@ -12,6 +12,7 @@ class Facility extends Model
     protected $fillable=[
         'package_id',
         'name',
+        'image',
         'status',
     ];
 
