@@ -4,8 +4,7 @@
         <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-                <img src="{{ URL("assets/images/onemovelogo.png") }}" />
-
+                <img src="{{ URL("assets/img/logo.svg") }}" />
             </div>
 
     </div>
@@ -87,7 +86,7 @@
 
                                     <li><a href="{{route('service.index')}}" key="t-light-sidebar">
                                             <i class="bx bx-layout"></i>
-                                            <span key="t-layouts" style="font-size: 12px;">Service Facilities</span>
+                                            <span key="t-layouts" style="font-size: 12px;">Package Services</span>
                                         </a></li>
                                 </ul>
                             </div>

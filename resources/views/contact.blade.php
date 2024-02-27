@@ -59,6 +59,7 @@
                                 <label for="phone_number" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-black peer-placeholder-shown:scale-90 peer-focus:scale-75 ">Phone Number</label>
                             </div>
                         </div>
+                        <input type="hidden" id="type" name="type" value="contact us">
 
                         <div class=" relative h-full z-0 w-full group">
                             <textarea placeholder="Write your message.." rows="7" type="text" name="message" id="message" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-black peer" placeholder=" " required></textarea>

@@ -135,15 +135,22 @@
                     </div>
                     <h4 class="text-2xl md:text-3xl font-semibold text-center">{{$package->name}}</h4>
                     <div class="flex items-center border-b border-[#D9D9D9]">
+                        @php $counter = 0; @endphp
                         @foreach ($package->service as $service)
+                            @if ($counter < 2)
                         <div class="flex flex-col items-center gap-2 p-4 md:p-6 first:border-r border-[#D9D9D9]">
                             <img class="rounded-full" src="{{ URL($service->image) }}" alt="card1">
                             <div class="text-center">
                                 <h6 class="font-medium md:text-xl">{{$service->name}}</h6>
-                                <p class="text-sm">Conrad Makkah</p>
+{{--                                <p class="text-sm">Conrad Makkah</p>--}}
                             </div>
                         </div>
+                                @php $counter++; @endphp
+                            @else
+                                @break
+                            @endif
                         @endforeach
+
                     </div>
                     <div class="flex justify-between items-center w-full">
                         <a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="space-x-2 font-semibold text-sm md:text-base"><i class="fa-solid fa-phone text-[#E1C844]"></i> +92 123 456 7890</a>

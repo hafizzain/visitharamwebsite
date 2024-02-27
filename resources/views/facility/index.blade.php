@@ -26,6 +26,7 @@
                         <tr>
                         <th>Name</th>
                         <th>Package</th>
+                        <th>Icon</th>
                         <th>Status</th>
                         <th>Actions</th>
                         </tr>
@@ -53,9 +54,43 @@
             columns: [
                 {data: 'name', name: 'name'},
                 {data: 'package', name: 'package'},
+                {data: 'image', name: 'image'},
                 {data: 'status', name: 'status'},
                 {data: 'actions', name: 'actions'},
             ]
         });
+
+    $('#datatable').on('click', '.delete-facility', function () {
+        var packageId = $(this).data('id');
+
+        if (confirm('Are you sure you want to delete this facility?')) {
+            $.ajax({
+                url: '/delete/facility/' + packageId,
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (data) {
+                    dataTable.ajax.reload();
+                    showSnackbar('Facility deleted successfully.');
+                    setTimeout(function () {
+                        location.reload(); // Reload the window after a short delay
+                    }, 2000); // 2000 milliseconds (adjust as needed)
+                },
+                error: function (error) {
+                    location.reload();
+                }
+            });
+        }
+    });
+
+    function showSnackbar(message, type = 'success') {
+        Snackbar.show({
+            text: message,
+            pos: 'bottom-center',
+            backgroundColor: type === 'success' ? '#28a745' : '#dc3545',
+            actionTextColor: '#fff'
+        });
+    }
 </script>
 @endsection

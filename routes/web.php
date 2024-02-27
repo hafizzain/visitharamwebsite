@@ -33,6 +33,7 @@ Route::get('add-facility', [HomeController::class, 'addFacility'])->name('add.fa
 Route::post('add-facility', [HomeController::class, 'storeFacility'])->name('insert.facility');
 Route::get('edit-facility/{id}', [HomeController::class, 'editFacility'])->name('edit.facility');
 Route::post('update-facility/{id}', [HomeController::class, 'updateFacility'])->name('update.facility');
+Route::delete('/delete/facility/{id}', [HomeController::class, 'deleteFacility'])->name('delete.facility');
 
 
 Route::get('service', [HomeController::class, 'serviceIndex'])->name('service.index');
@@ -40,6 +41,7 @@ Route::get('add-service', [HomeController::class, 'addService'])->name('add.serv
 Route::post('add-service', [HomeController::class, 'storeService'])->name('insert.service');
 Route::get('edit-service/{id}', [HomeController::class, 'editService'])->name('edit.service');
 Route::post('update-service/{id}', [HomeController::class, 'updateService'])->name('update.service');
+Route::delete('/delete/service/{id}', [HomeController::class, 'deleteService'])->name('delete.service');
 
 
 Route::get('/', [WebController::class, 'index'])->name('website');

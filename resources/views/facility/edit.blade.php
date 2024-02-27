@@ -76,6 +76,12 @@
                         </div>
                     </label>
                 </div>
+
+                <div class="form-group col-sm-12 mb-2">
+                    <label for="image">Icon</label>
+                    <input type="file" class="form-control" name="image" id="image">
+                </div>
+
                 <div class="form-group col-sm-12 mb-2">
                     <input type="submit" value="Save" class="btn btn-primary btn-sm">
                 </div>

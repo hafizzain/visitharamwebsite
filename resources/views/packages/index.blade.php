@@ -64,8 +64,6 @@
         });
 
 
-
-
         $('#datatable').on('click', '.delete-package', function () {
             var packageId = $(this).data('id');
 
@@ -98,11 +96,5 @@
                 actionTextColor: '#fff'
             });
         }
-
-
-
-
-
-
     </script>
 @endsection

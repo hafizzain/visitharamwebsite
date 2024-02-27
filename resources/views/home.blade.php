@@ -20,8 +20,8 @@
                     <div class="row">
                         <div class="col-7">
                             <div class="text-primary p-3">
-                                <h5 class="text-primary">Welcome Back</h5>
-                                <p>haram</p>
+                                <h5 class="text-primary">Welcome Back!</h5>
+                                <p>Visit Haram</p>
                                 <p>Admin Dashboard</p>
 
                                 {{-- <ul class="ps-3 mb-0">
@@ -51,7 +51,7 @@
                                 <h5 class="font-size-14 mb-0">Packages</h5>
                             </div>
                             <div class="text-muted mt-4">
-                                <h4>Packages </h4>
+                                <h4>{{$packages}} </h4>
 
                             </div>
                         </div>
@@ -67,10 +67,10 @@
                                         <i class="bx bx-archive-in"></i>
                                     </span>
                                 </div>
-                                <h5 class="font-size-14 mb-0">Packages</h5>
+                                <h5 class="font-size-14 mb-0">Services</h5>
                             </div>
                             <div class="text-muted mt-4">
-                                <h4>Packages </h4>
+                                <h4>{{$services}} </h4>
                                 {{-- <div class="d-flex">
                                     <span class="badge badge-soft-success font-size-12"> + 0.2% </span> <span class="ms-2 text-truncate">From previous period</span>
                                 </div> --}}
@@ -88,10 +88,10 @@
                                         <i class="bx bx-purchase-tag-alt"></i>
                                     </span>
                                 </div>
-                                <h5 class="font-size-14 mb-0">Packages</h5>
+                                <h5 class="font-size-14 mb-0">Facilities</h5>
                             </div>
                             <div class="text-muted mt-4">
-                                <h4>Packages </h4>
+                                <h4>{{$facilities}}</h4>
 
                                 {{-- <div class="d-flex">
                                     <span class="badge badge-soft-warning font-size-12"> 0% </span> <span class="ms-2 text-truncate">From previous period</span>

@@ -3,21 +3,6 @@
 namespace App\Helper;
 
 use App\Jobs\SendEmailJob;
-use App\Models\Attendance;
-use App\Models\ClosedMonth;
-use App\Models\DayCarePayment;
-use App\Models\DaycareProvider;
-use App\Models\Invoice;
-use App\Models\Kid;
-use App\Models\KidAccidentReport;
-use App\Models\KidMeal;
-use App\Models\NapTime;
-use App\Models\Notification;
-use App\Models\Parents;
-use App\Models\Ticket;
-use App\Models\User;
-use Carbon\Carbon;
-use DateTime;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -25,7 +10,6 @@ use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
-use Rmunate\Utilities\SpellNumber;
 
 class GlobalHelper
 {
@@ -56,6 +40,10 @@ class GlobalHelper
                 } elseif (in_array($ext, ['pdf', 'docx', 'xls', 'csv', 'xlsx', 'txt', 'text', 'docx'])) {
                     $url = $destinationDirectory . '/' . $fileName;
                     $file->move($destinationPath, $fileName);
+                } elseif ($ext === 'svg') {
+                // Handle SVG differently, as it doesn't need image processing
+                $url = $destinationDirectory . '/' . $fileName;
+                $file->move($destinationPath, $fileName);
                 } else {
                     $url = '';
                 }
