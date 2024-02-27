@@ -39,7 +39,9 @@
                 </div>
                 <hr class="w-full border-[#CCCCCC]">
                 <div class="flex flex-wrap md:flex-nowrap items-center justify-between gap-5 lg:gap-10 py-2 text-sm">
-                    <div class="flex flex-col items-center gap-2">
+                @foreach ($package->facility as $facility)
+
+                <div class="flex flex-col items-center gap-2">
                         <img src="{{ URL($facility->image) }}" alt="visa">
                         <p>{{ $facility->name }}</p>
                     </div>
