@@ -47,7 +47,7 @@
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
             </div>
-            <div class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
+            <form class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
                 <div class="flex sm:flex-nowrap flex-wrap items-center gap-3 md:gap-5">
                     <div class="mb-5 w-full">
                         <label for="name" class="block mb-1 text-sm font-medium text-[#808080] ">Your Name</label>
@@ -60,7 +60,7 @@
                     <div class="mb-5 w-full relative">
                         <label for="mobile" class="block mb-1 text-sm font-medium text-[#808080] ">Mobile Number</label>
                         <!-- <input type="number" id="mobile" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Phone Number" required /> -->
-                        <form class="w-full">
+                        <div class="w-full">
                             <div class="flex items-center">
                                 <select class="minimal w-[100px] h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-l-lg rounded-r-none focus:ring-[#E1C844] focus:border-[#E1C844] block p-2.5">
                                     <option value="+1">+1</option>
@@ -71,7 +71,7 @@
                                     <input type="text" id="phone-input" class="h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-tr-lg rounded-br-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
                                 </div>
                             </div>
-                        </form>
+                        </div>
 
                     </div>
                     <div class="mb-5 w-full">
@@ -88,9 +88,9 @@
                         <input id="default-checkbox" type="checkbox" value="" class="!shadow-none sm:w-4 sm:h-4 h-6 w-6  bg-[#F9FAFB] border border-[#D1D5DB] rounded text-blue-600">
                         <label for="default-checkbox" class="ms-2 text-sm font-normal text-black">I want deals via phone calls and promotions through emails.</label>
                     </div>
-                    <button class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>
+                    <button type="submit" class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -243,7 +243,7 @@
                     </div>
                 </div>
             </div>
-          
+
         </div>
     </div>
 </section>

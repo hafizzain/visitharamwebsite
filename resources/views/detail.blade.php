@@ -63,7 +63,7 @@
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
             </div>
-            <div class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
+            <form class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
                 <div class="flex sm:flex-nowrap flex-wrap items-center gap-3 md:gap-5">
                     <div class="mb-5 w-full">
                         <label for="name" class="block mb-1 text-sm font-medium text-[#808080] ">Your Name</label>
@@ -76,7 +76,7 @@
                     <div class="mb-5 w-full relative">
                         <label for="mobile" class="block mb-1 text-sm font-medium text-[#808080] ">Mobile Number</label>
                         <!-- <input type="number" id="mobile" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Phone Number" required /> -->
-                        <form class="w-full">
+                        <div class="w-full">
                             <div class="flex items-center">
                                 <select class="minimal w-[100px] h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-l-lg rounded-r-none focus:ring-[#E1C844] focus:border-[#E1C844] block p-2.5">
                                     <option value="+1">+1</option>
@@ -87,7 +87,7 @@
                                     <input type="text" id="phone-input" class="h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-tr-lg rounded-br-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
                                 </div>
                             </div>
-                        </form>
+                        </div>
 
                     </div>
                     <div class="mb-5 w-full">
@@ -104,9 +104,9 @@
                         <input id="default-checkbox" type="checkbox" value="" class="sm:w-4 sm:h-4 h-6 w-6  bg-[#D3DCDC] border-[#D3DCDC] rounded focus:ring-blue-500 ">
                         <label for="default-checkbox" class="ms-2 text-sm font-normal text-black">I want deals via phone calls and promotions through emails.</label>
                     </div>
-                    <button class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>
+                    <button type="submit" class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div class="container mx-auto px-5 sm:px-10 xl:px-24 py-2 pt-16">
@@ -122,7 +122,7 @@
 
 <section>
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24 pt-10 md:pt-0">
-        
+
         <div class="flex flex-col gap-10">
             <div class="bg-[#F3EED2] rounded-xl lg:rounded-[20px] px-10 py-5 pt-16">
                 <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">7 Nights 5 Star Umrah Package</h2>
@@ -158,7 +158,7 @@
                                     <p class='text-base'>Enjoy full access to free Wi-Fi right in your room and connect with your loved ones.</p>
                                 </div>
                             </li>
-                            
+
                             <li class='flex items-start gap-5'>
                                 <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/ac.svg') }}" alt="ac">
                                 <div>
@@ -166,7 +166,7 @@
                                     <p class='text-base'>All the rooms, no matter single or quad shared, have air-conditioning installed.</p>
                                 </div>
                             </li>
-                        
+
                         </ul>
                     </div>
                     <div class="grid gap-5 md:gap-0 md:grid-cols-2">
@@ -189,7 +189,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="bg-[#F3EED2] rounded-xl lg:rounded-[20px] px-10 py-5 pt-16">
                 <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">7 Nights 5 Star Umrah Package</h2>
                 <div class="py-5 space-y-5 md:space-y-10">
@@ -224,7 +224,7 @@
                                     <p class='text-base'>Enjoy full access to free Wi-Fi right in your room and connect with your loved ones.</p>
                                 </div>
                             </li>
-                            
+
                             <li class='flex items-start gap-5'>
                                 <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/ac.svg') }}" alt="ac">
                                 <div>
@@ -232,7 +232,7 @@
                                     <p class='text-base'>All the rooms, no matter single or quad shared, have air-conditioning installed.</p>
                                 </div>
                             </li>
-                        
+
                         </ul>
                     </div>
                     <div class="grid gap-5 md:gap-0 md:grid-cols-2">
