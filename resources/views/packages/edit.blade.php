@@ -103,19 +103,25 @@
                                     </span>
                                 @enderror
                             </div>
-                            <div class="form-group col-sm-6 mb-2 d-flex align-items-end">
 
-                                <label for="switch4" data-on-label="Yes" data-off-label="No">
-                                    <label for="">Status: </label>
-                                    <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
-
-                                        <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg" @if(isset($package) && $package->active == 1) checked="" @endif>
-                                    </div>
-                                </label>
+                            <div class="form-group col-sm-6 mb-2">
+                                <label for=""> Hotel<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <select required class="form-control" name="package_id">
+                                        <option value="">Select Hotel</option>
+                                        @foreach ($hotels as $hotel)
+                                            <option value="{{ $hotel->id }}" @isset($package) @if ($package->hotel_id == $hotel->id) selected @endif @endisset>{{ $hotel->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('hotel_id')
+                                <span class="invalid-feedback mt-0" @error('hotel_id') style="display: block" @enderror role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                                @enderror
                             </div>
 
-
-                            <div class="form-group col-sm-12 mb-2">
+                            <div class="form-group col-sm-6 mb-2">
                                 <label for="images">Images</label>
                                 <input type="file" class="form-control" name="files[]" id="images" multiple>
 
@@ -128,6 +134,17 @@
                                         @endforeach
                                     </div>
                                 @endif
+                            </div>
+
+                            <div class="form-group col-sm-6 mb-2 d-flex align-items-end">
+
+                                <label for="switch4" data-on-label="Yes" data-off-label="No">
+                                    <label for="">Status: </label>
+                                    <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
+
+                                        <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg" @if(isset($package) && $package->active == 1) checked="" @endif>
+                                    </div>
+                                </label>
                             </div>
 
 

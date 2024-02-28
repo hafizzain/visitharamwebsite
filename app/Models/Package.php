@@ -25,4 +25,9 @@ class Package extends Model
     {
         return $this->hasMany(Facility::class);
     }
+
+    public function hotel() {
+        return $this->belongsTo(Hotel::class, 'hotel_id');
+    }
+
 }

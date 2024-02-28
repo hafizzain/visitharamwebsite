@@ -13,16 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('packages', function (Blueprint $table) {
+        Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->string('days')->nullable();
-            $table->string('nights')->nullable();
-            $table->string('price')->nullable();
-            $table->unsignedBigInteger('hotel_id')->nullable();
-            $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
             $table->text('description')->nullable();
-            $table->tinyInteger('active')->nullable()->default(1);
+            $table->tinyInteger('status')->nullable()->default(1);
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('packages');
+        Schema::dropIfExists('hotels');
     }
 };

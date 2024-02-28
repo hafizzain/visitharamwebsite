@@ -72,6 +72,10 @@
                                             <i class="bx bx-layout"></i>
                                             <span key="t-layouts" style="font-size: 12px;"> Dashboard</span>
                                         </a></li>
+                                    <li><a href="{{route('hotels')}}" key="t-light-sidebar">
+                                            <i class="bx bx-layout"></i>
+                                            <span key="t-layouts" style="font-size: 12px;"> Hotels</span>
+                                        </a></li>
 
                                     <li><a href="{{route('packages')}}" key="t-light-sidebar">
                                             <i class="bx bx-layout"></i>
