@@ -130,9 +130,30 @@
         width: 100%;
     }
 
-    /* input[type="checkbox"]{
-        background: red !important;
-    } */
+   
+    /* ----- Snackbar ------ */
+    .snackbar-container {
+      min-width: 500px !important; /* Default width */
+      max-width: 720px !important;
+      font-family: "Poppins", sans-serif !important;
+    }
+    .snackbar-container p{
+        font-weight: 700 !important;
+        }
+
+    /* Media query for mobile devices */
+    @media screen and (max-width: 770px) {
+        .snackbar-container {
+          width: 300px !important; /* Auto width for mobile devices */
+        }
+        
+        .snackbar-pos.bottom-center {
+            top: auto !important;
+            bottom: 1% !important;
+            left: 50% !important;
+            transform: translate(-50%, 0) !important;
+        }
+    }
 
 </style>
 <body>
@@ -277,12 +298,26 @@
     Snackbar.show({
         pos: 'bottom-center',
         text: `{{ session()->get('success') }}`,
-        backgroundColor: '#556d33',
-        actionTextColor: '#fff',
+        textColor: "#fff",
+        backgroundColor: '#110928',
+        actionTextColor: '#E1C844',
+        duration: '2000',
+        fontFamily: 'Poppins',
     });
     @endif
 </script>
 <script>
+       document.addEventListener('DOMContentLoaded', function() {
+            Snackbar.show({
+                pos: 'bottom-center',
+                text:  "Success Message",
+                textColor: "#fff",
+                backgroundColor: '#110928',
+                actionTextColor: '#E1C844',
+                duration: '57000',
+                fontFamily: 'Poppins', 
+            });
+        });
     var swiper = new Swiper(".mySwiper", {
         // loop: true,
         // autoplay: {
