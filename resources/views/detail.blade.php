@@ -6,7 +6,7 @@
 
 
 <header class="w-full bg-[#F5F2E3]">
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 md:py-0 py-10 md:h-[30vh] xl:h-[40vh] grid md:grid-cols-8 gap-5 md:gap-8 md:translate-y-[33%]">
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 md:py-0 py-10 md:h-[250px] xl:h-[300px] grid md:grid-cols-8 gap-5 md:gap-8 md:translate-y-[33%]">
         <div class="md:col-span-4 lg:col-span-3 swiper headerSwiper pb-10">
             <div class="swiper-wrapper">
                 @foreach ($package->media as $media)
@@ -58,7 +58,7 @@
 </header>
 
 <section>
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-2 md:pt-80 xl:pt-72">
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-2 md:pt-80 xl:pt-80 2xl:pt-72">
         <div class="shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>

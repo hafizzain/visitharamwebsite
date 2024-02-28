@@ -5,7 +5,7 @@
 @section('content')
 
 <header class="w-full bg-[#F5F2E3]">
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 sm:py-0 py-10 h-[30vh] xl:h-[40vh] flex justify-center items-center">
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 sm:py-0 py-10 h-[250px] xl:h-[300px] flex justify-center items-center">
         <h2 class="text-4xl md:text-5xl xl:text-6xl font-bold text-[#110928]">Contact Us</h2>
     </div>
 </header>
@@ -13,7 +13,7 @@
 <section>
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-10">
         <div class="grid lg:grid-cols-10 py-5 gap-5">
-            <div class='col-span-5 lg:col-span-4 flex flex-col gap-10 p-5 lg:p-8 rounded-xl md:rounded-[20px] text-white !bg-no-repeat !bg-bottom lg:!bg-center !bg-cover lg:!bg-contain 2xl:!bg-cover' style="background: url('{{ URL('assets/img/contact/contact-bg.png') }}');">
+            <div class='col-span-5 lg:col-span-4 flex flex-col gap-10 p-5 lg:p-8 lg:!pt-16 2xl:!pt-8 rounded-xl md:rounded-[20px] text-white !bg-no-repeat !bg-bottom lg:!bg-center !bg-cover lg:!bg-contain 2xl:!bg-cover' style="background: url('{{ URL('assets/img/contact/contact-bg.png') }}');">
                 <div class='flex gap-5 items-start'>
                     <div>
                         <h4 class='font-semibold text-[1.7rem]'>Contact Information</h4>
