@@ -307,17 +307,18 @@
     @endif
 </script>
 <script>
-       document.addEventListener('DOMContentLoaded', function() {
-            Snackbar.show({
-                pos: 'bottom-center',
-                text:  "Success Message",
-                textColor: "#fff",
-                backgroundColor: '#110928',
-                actionTextColor: '#E1C844',
-                duration: '57000',
-                fontFamily: 'Poppins', 
-            });
-        });
+    //    document.addEventListener('DOMContentLoaded', function() {
+    //         Snackbar.show({
+    //             pos: 'bottom-center',
+    //             text:  "Success Message",
+    //             textColor: "#fff",
+    //             backgroundColor: '#110928',
+    //             actionTextColor: '#E1C844',
+    //             duration: '57000',
+    //             fontFamily: 'Poppins', 
+    //         });
+    //     });
+    
     var swiper = new Swiper(".mySwiper", {
         // loop: true,
         // autoplay: {
