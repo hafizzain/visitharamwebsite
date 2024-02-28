@@ -251,6 +251,18 @@ class HomeController extends Controller
     public function updateFacility(Request $request, $id)
     {
         $facility = Facility::find($id);
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'facility_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $facility->image;
+        }
+        $facility->image = $image;
         $facility->name = $request->name;
         $facility->package_id = $request->package_id;
         if ($request->status == 'on') {
@@ -355,6 +367,18 @@ class HomeController extends Controller
     public function updateService(Request $request, $id)
     {
         $service = Service::find($id);
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'service_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $service->image;
+        }
+        $service->image = $image;
         $service->name = $request->name;
         $service->package_id = $request->package_id;
         if ($request->status == 'on') {
