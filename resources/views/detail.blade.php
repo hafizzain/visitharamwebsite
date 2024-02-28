@@ -127,137 +127,58 @@
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24 pt-10 md:pt-0">
 
         <div class="flex flex-col gap-10">
+            @php $counter = 0; @endphp
+            @foreach ($packages as $package)
+                @if ($counter < 2)
             <div class="bg-[#F3EED2] rounded-xl lg:rounded-[20px] px-10 py-5 pt-16">
-                <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">7 Nights 5 Star Umrah Package</h2>
+                <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">{{$package->name}}</h2>
                 <div class="py-5 space-y-5 md:space-y-10">
                     <div class="bg-white grid gap-5 md:gap-0 md:grid-cols-2 rounded-xl lg:rounded-[20px] p-5 lg:p-8">
                         <ul class="space-y-5 border-b md:border-b-0 pb-5 md:pb-0 md:border-r border-[#D3D2C9]">
+                            @foreach ($package->facility as $facility)
                             <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Visa</span>
+                                </svg> <span class='text-base'>{{$facility->name}}</span>
                             </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Ground Transfers Can be Included on Extra Cost</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>All Packages are Based on 3-4 People Sharing</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Return Flights</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Direct Flights Can be Arranged on Special Request</span>
-                            </li>
+                            @endforeach
                         </ul>
                         <ul class="space-y-5 flex flex-col justify-between md:pl-5 lg:pl-8">
+                            @foreach ($package->hotel->hotelfacility as $hotelfacility)
                             <li class='flex items-start gap-5'>
-                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/wifi.svg') }}" alt="wifi">
+                                <img class="size-8 md:scale-125" src="{{ URL($hotelfacility->image) }}" alt="wifi">
                                 <div>
-                                    <h6 class='text-base font-bold mb-2'>Free Wi-Fi</h6>
-                                    <p class='text-base'>Enjoy full access to free Wi-Fi right in your room and connect with your loved ones.</p>
+                                    <h6 class='text-base font-bold mb-2'>{{$hotelfacility->name}}</h6>
+                                    <p class='text-base'>{{$hotelfacility->description}}</p>
                                 </div>
                             </li>
 
-                            <li class='flex items-start gap-5'>
-                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/ac.svg') }}" alt="ac">
-                                <div>
-                                    <h6 class='text-base font-bold mb-2'>A/C Rooms</h6>
-                                    <p class='text-base'>All the rooms, no matter single or quad shared, have air-conditioning installed.</p>
-                                </div>
-                            </li>
+                            @endforeach
 
                         </ul>
                     </div>
                     <div class="grid gap-5 md:gap-0 md:grid-cols-2">
                         <div class="swiper umrahPackageSwiper1 pb-10">
                             <div class="swiper-wrapper">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/makkah1.png') }}" alt="img1">
+                                @foreach ($package->media as $media)
+                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL($media->file) }}" alt="img1">
+                                @endforeach
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
                         <div class="md:p-5 lg:p-8">
-                            <h5 class="text-2xl font-bold">Conrad Makkah</h5>
+                            <h5 class="text-2xl font-bold">{{$package->hotel->name}}</h5>
                             <div class="space-y-7 py-2 lg:w-3/4">
-                                <p>The 5-star Elaf Kinda Hotel is adjacent to King Abdul Aziz's stop facing the Holy Mosque between King Abdul Aziz Gat</p>
-                                <p>Rooms at Elaf Kinda Hotel feature dark wood furnishings, printed carpeted floors and a tea / coffee maker. All suites have a seating area with a sofa, as well as speakers connected directly to the Haram.</p>
+                                <p>{{$package->hotel->description}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="bg-[#F3EED2] rounded-xl lg:rounded-[20px] px-10 py-5 pt-16">
-                <h2 class="text-[#110928] font-bold text-3xl text-center pb-5 lg:pb-0">7 Nights 5 Star Umrah Package</h2>
-                <div class="py-5 space-y-5 md:space-y-10">
-                    <div class="bg-white grid gap-5 md:gap-0 md:grid-cols-2 rounded-xl lg:rounded-[20px] p-5 lg:p-8">
-                        <ul class="space-y-5 border-b md:border-b-0 pb-5 md:pb-0 md:border-r border-[#D3D2C9]">
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Visa</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Ground Transfers Can be Included on Extra Cost</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>All Packages are Based on 3-4 People Sharing</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Return Flights</span>
-                            </li>
-                            <li class='flex items-center gap-2'><svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.80577 13.4429C3.20333 11.2441 1.61781 9.06862 0 6.84938C0.338932 6.53516 0.684781 6.19542 1.05907 5.88703C1.12516 5.83308 1.34036 5.87172 1.43873 5.93515C2.42248 6.57161 3.39547 7.22193 4.3723 7.86714C4.48605 7.94223 4.60364 8.01222 4.74121 8.09752C4.97331 7.82558 5.18851 7.57114 5.40601 7.31889C7.42039 4.97572 9.63459 2.82793 12.2116 1.02936C12.6765 0.704931 13.1423 0.511003 13.7294 0.566411C14.1168 0.602864 14.5111 0.572973 14.9999 0.572973C10.7582 4.35457 7.7378 8.88198 4.80577 13.4429Z" fill="#09B175"/>
-                                </svg> <span class='text-base'>Direct Flights Can be Arranged on Special Request</span>
-                            </li>
-                        </ul>
-                        <ul class="space-y-5 flex flex-col justify-between md:pl-5 lg:pl-8">
-                            <li class='flex items-start gap-5'>
-                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/wifi.svg') }}" alt="wifi">
-                                <div>
-                                    <h6 class='text-base font-bold mb-2'>Free Wi-Fi</h6>
-                                    <p class='text-base'>Enjoy full access to free Wi-Fi right in your room and connect with your loved ones.</p>
-                                </div>
-                            </li>
-
-                            <li class='flex items-start gap-5'>
-                                <img class="size-8 md:scale-125" src="{{ URL('assets/img/details/ac.svg') }}" alt="ac">
-                                <div>
-                                    <h6 class='text-base font-bold mb-2'>A/C Rooms</h6>
-                                    <p class='text-base'>All the rooms, no matter single or quad shared, have air-conditioning installed.</p>
-                                </div>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="grid gap-5 md:gap-0 md:grid-cols-2">
-                        <div class="swiper umrahPackageSwiper2 pb-10">
-                            <div class="swiper-wrapper">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
-                                <img class="swiper-slide h-[280px] md:h-[320px] lg:h-[350px] rounded-xl lg:rounded-[20px] object-cover" src="{{ URL('assets/img/details/madina1.png') }}" alt="img1">
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                        <div class="md:p-5 lg:p-8">
-                            <h5 class="text-2xl font-bold">El Eifman Hotel</h5>
-                            <div class="space-y-7 py-2 lg:w-3/4">
-                                <p>The 5-star Elaf Kinda Hotel is adjacent to King Abdul Aziz's stop facing the Holy Mosque between King Abdul Aziz Gat</p>
-                                <p>Rooms at Elaf Kinda Hotel feature dark wood furnishings, printed carpeted floors and a tea / coffee maker. All suites have a seating area with a sofa, as well as speakers connected directly to the Haram.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                @php $counter++; @endphp
+                @else
+                    @break
+                @endif
+            @endforeach
         </div>
 
         <div class="pt-10 grid lg:grid-cols-2 gap-10">

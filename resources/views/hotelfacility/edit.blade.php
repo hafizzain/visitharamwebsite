@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@isset($facility)
-    @section('title', 'Edit Facility')
+@isset($hotelfacility)
+    @section('title', 'Edit Hotel Facility')
 @else
-    @section('title', 'Add Facility')
+    @section('title', 'Add Hotel Facility')
 @endisset
 @section('content')
 
@@ -10,19 +10,19 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                @isset($facility)
-                <h4 class="mb-sm-0 font-size-18">Edit Facility</h4>
+                @isset($hotelfacility)
+                <h4 class="mb-sm-0 font-size-18">Edit Hotel Facility</h4>
                 @else
-                <h4 class="mb-sm-0 font-size-18">Add New Facility</h4>
+                <h4 class="mb-sm-0 font-size-18">Add New Hotel Facility</h4>
                 @endisset
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Facility</li>
-                        @isset($facility)
-                        <li class="breadcrumb-item active">Edit Facility</li>
+                        <li class="breadcrumb-item active">Hotel Facility</li>
+                        @isset($hotelfacility)
+                        <li class="breadcrumb-item active">Edit Hotel Facility</li>
                         @else
-                        <li class="breadcrumb-item active">Add New Facility</li>
+                        <li class="breadcrumb-item active">Add New Hotel Facility</li>
                         @endisset
                     </ol>
                 </div>
@@ -32,17 +32,17 @@
     </div>
 </div>
 <div class="card p-4 rounded cShadow container-fluid">
-    @isset($facility)
-    <form action="{{ route('update.facility', $facility->id) }}" method="post" enctype="multipart/form-data">
+    @isset($hotelfacility)
+    <form action="{{ route('update.hotelfacility', $hotelfacility->id) }}" method="post" enctype="multipart/form-data">
         @else
-        <form action="{{route('insert.facility')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('insert.hotelfacility')}}" method="post" enctype="multipart/form-data">
             @endisset
             @csrf
             <div class="row">
                 <div class="form-group col-sm-6 mb-2">
                     <label for="">Name<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" required class="form-control" name="name" @isset($facility)value="{{$facility->name}}" @endisset placeholder="Enter Name">
+                        <input type="text" required class="form-control" name="name" @isset($hotelfacility)value="{{$hotelfacility->name}}" @endisset placeholder="Enter Name">
                     </div>
                     @error('name')
                     <span class="invalid-feedback mt-0" @error('name')style="display: block" @enderror role="alert">
@@ -51,18 +51,19 @@
                     @enderror
                 </div>
 
+
                 <div class="form-group col-sm-6 mb-2">
-                    <label for=""> Package<span class="text-danger">*</span></label>
+                    <label for=""> Hotel<span class="text-danger">*</span></label>
                     <div class="input-group">
-                    <select required class="form-control" name="package_id">
-                    <option value="">Select Package</option>
-                    @foreach ($packages as $package)
-                    <option value="{{ $package->id }}" @isset($facility) @if ($facility->package_id == $package->id) selected @endif @endisset>{{ $package->name }}</option>
+                    <select required class="form-control" name="hotel_id">
+                    <option value="">Select Hotel</option>
+                    @foreach ($hotels as $hotel)
+                    <option value="{{ $hotel->id }}" @isset($hotelfacility) @if ($hotelfacility->hotel_id == $hotel->id) selected @endif @endisset>{{ $hotel->name }}</option>
                     @endforeach
                     </select>
                     </div>
-                    @error('package_id')
-                    <span class="invalid-feedback mt-0" @error('package_id') style="display: block" @enderror role="alert">
+                    @error('hotel_id')
+                    <span class="invalid-feedback mt-0" @error('hotel_id') style="display: block" @enderror role="alert">
                     <strong>{{ $message }}</strong>
                     </span>
                     @enderror
@@ -71,8 +72,8 @@
                 <div class="form-group col-sm-6 mb-2">
                     <label for="image">Icon</label>
                     <input type="file" class="form-control" name="image" id="image">
-                    @isset($facility)
-                        <img src="{{ asset($facility->image) }}" alt="Existing Icon" style="max-width: 100px;">
+                    @isset($hotelfacility)
+                        <img src="{{ asset($hotelfacility->image) }}" alt="Existing Icon" style="max-width: 100px;">
 
                     @endisset
                 </div>
@@ -87,6 +88,19 @@
                 </div>
 
 
+
+                <div class="form-group col-sm-6 mb-2">
+                    <label for="">Description<span class="text-danger">*</span></label>
+                    <div class="input-group">
+                            <textarea class="form-control" name="description" placeholder="Enter Description">@isset($hotelfacility){{ $hotelfacility->description }}@endisset</textarea>
+
+                    </div>
+                    @error('description')
+                    <span class="invalid-feedback mt-0" @error('description')style="display: block" @enderror role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
 
                 <div class="form-group col-sm-12 mb-2">
                     <input type="submit" value="Save" class="btn btn-primary btn-sm">
