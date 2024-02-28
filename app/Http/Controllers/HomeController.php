@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
+use App\Models\Hotel;
 use App\Models\Package;
 use App\Models\Facility;
 use App\Models\Service;
@@ -51,6 +52,10 @@ class HomeController extends Controller
                     }
                     return $status;
                 })
+                ->addColumn('hotel', function ($data) {
+                    $hotel = $data->hotel->name;
+                    return $hotel;
+                })
                 ->addColumn('actions', function ($data) {
 
                     $actions = '<div class="btn-group-sm" role="group" aria-label="Basic example">
@@ -60,7 +65,7 @@ class HomeController extends Controller
                                             </div>';
                     return $actions;
                 })
-                ->rawColumns(['status', 'actions'])
+                ->rawColumns(['status', 'actions','hotel'])
                 ->make(true);
         }
         return view('packages.index');
@@ -68,7 +73,8 @@ class HomeController extends Controller
 
     public function addPackage(Request $request)
     {
-        return view('packages.edit');
+        $hotels = Hotel::where('status', 1)->get();
+        return view('packages.edit', compact('hotels'));
     }
 
     public function insertPackage(Request $request)
@@ -100,6 +106,7 @@ class HomeController extends Controller
         $package->name = $request->name;
         $package->days = $request->days;
         $package->nights = $request->nights;
+        $package->hotel_id = $request->hotel_id;
         $package->price = $request->price;
         $package->description = $request->description;
         $package->active = $request->status;
@@ -144,6 +151,7 @@ class HomeController extends Controller
         $package->nights = $request->nights;
         $package->price = $request->price;
         $package->description = $request->description;
+        $package->hotel_id = $request->hotel_id;
         $package->active = $request->status;
         $package->save();
 
@@ -361,5 +369,106 @@ class HomeController extends Controller
     {
         Service::find($id)->delete();
         return back()->with('success', 'Service deleted Successfully');
+    }
+
+
+
+    public function hotels(Request $request)
+    {
+        $data = Hotel::all();
+
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addColumn('status', function ($data) {
+                    //                    dd($riders);
+                    $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
+                    if ($data->status == 1) {
+                        $status = '<span class="badge badge-pill badge-soft-success font-size-11">Active</span>';
+                    }
+                    return $status;
+                })
+                ->addColumn('actions', function ($data) {
+
+                    $actions = '<div class="btn-group-sm" role="group" aria-label="Basic example">
+                    <a href="' . route('edit.hotel', $data->id) . '" class="btn btn-outline-primary btn-sm">Edit</a>
+                    <button class="btn btn-outline-danger btn-sm delete-hotel" data-id="' . $data->id . '">Delete</button>
+
+                                            </div>';
+                    return $actions;
+                })
+                ->rawColumns(['status', 'actions'])
+                ->make(true);
+        }
+        return view('hotels.index');
+    }
+
+    public function addHotel(Request $request)
+    {
+        return view('hotels.edit');
+    }
+
+    public function insertHotel(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if ($request->has('status') && $request->status == 'on') {
+            $request['status'] = 1;
+        } else {
+            $request['status'] = 0;
+        }
+
+        $hotel = new Hotel();
+        $hotel->name = $request->name;
+        $hotel->description = $request->description;
+        $hotel->status = $request->status;
+        $hotel->save();
+
+        return redirect()->route('hotels')->with('success', 'Hotel Added Successfully');
+    }
+
+    public function editHotel($id)
+    {
+        $hotel = Hotel::find($id);
+        return view('hotels.edit', compact('hotel'));
+    }
+
+    public function updateHotel($id, Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'name' => ['required'],
+
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if ($request->has('status') && $request->status == 'on') {
+            $request['status'] = 1;
+        } else {
+            $request['status'] = 0;
+        }
+
+        $hotel = Hotel::find($id);
+        $hotel->name = $request->name;
+        $hotel->description = $request->description;
+        $hotel->status = $request->status;
+        $hotel->save();
+
+        return redirect()->route('hotels')->with('success', 'Hotel Updated Successfully');
+    }
+
+
+    public function deleteHotel($id)
+    {
+        Hotel::find($id)->delete();
+        return back()->with('success', 'Hotel deleted Successfully');
     }
 }

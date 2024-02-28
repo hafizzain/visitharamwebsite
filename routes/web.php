@@ -43,6 +43,12 @@ Route::get('edit-service/{id}', [HomeController::class, 'editService'])->name('e
 Route::post('update-service/{id}', [HomeController::class, 'updateService'])->name('update.service');
 Route::delete('/delete/service/{id}', [HomeController::class, 'deleteService'])->name('delete.service');
 
+Route::get('hotels', [HomeController::class, 'hotels'])->name('hotels');
+Route::get('hotel/add', [HomeController::class, 'addHotel'])->name('add.hotel');
+Route::post('hotel/insert', [HomeController::class, 'insertHotel'])->name('insert.hotel');
+Route::get('hotel/edit/{id}', [HomeController::class, 'editHotel'])->name('edit.hotel');
+Route::post('hotel/update/{id}', [HomeController::class, 'updateHotel'])->name('update.hotel');
+Route::delete('/delete/hotel/{id}', [HomeController::class, 'deleteHotel'])->name('delete.hotel');
 
 Route::get('/', [WebController::class, 'index'])->name('website');
 Route::get('/package-detail/{id}', [WebController::class, 'packageDetails'])->name('packages.showDetails');
