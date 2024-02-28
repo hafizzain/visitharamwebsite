@@ -130,6 +130,10 @@
         width: 100%;
     }
 
+    /* input[type="checkbox"]{
+        background: red !important;
+    } */
+
 </style>
 <body>
 
