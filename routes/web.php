@@ -36,6 +36,14 @@ Route::post('update-facility/{id}', [HomeController::class, 'updateFacility'])->
 Route::delete('/delete/facility/{id}', [HomeController::class, 'deleteFacility'])->name('delete.facility');
 
 
+Route::get('hotelfacility', [HomeController::class, 'hotelfacilityIndex'])->name('hotelfacility.index');
+Route::get('add-hotelfacility', [HomeController::class, 'addhotelFacility'])->name('add.hotelfacility');
+Route::post('add-hotelfacility', [HomeController::class, 'storehotelFacility'])->name('insert.hotelfacility');
+Route::get('edit-hotelfacility/{id}', [HomeController::class, 'edithotelFacility'])->name('edit.hotelfacility');
+Route::post('update-hotelfacility/{id}', [HomeController::class, 'updatehotelFacility'])->name('update.hotelfacility');
+Route::delete('/delete/hotelfacility/{id}', [HomeController::class, 'deletehotelFacility'])->name('delete.hotelfacility');
+
+
 Route::get('service', [HomeController::class, 'serviceIndex'])->name('service.index');
 Route::get('add-service', [HomeController::class, 'addService'])->name('add.service');
 Route::post('add-service', [HomeController::class, 'storeService'])->name('insert.service');

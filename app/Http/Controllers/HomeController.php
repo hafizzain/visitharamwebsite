@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
 use App\Models\Hotel;
+use App\Models\HotelFacility;
 use App\Models\Package;
 use App\Models\Facility;
 use App\Models\Service;
@@ -124,7 +125,8 @@ class HomeController extends Controller
     public function editPackage($id)
     {
         $package = Package::find($id);
-        return view('packages.edit', compact('package'));
+        $hotels = Hotel::where('status', 1)->get();
+        return view('packages.edit', compact('package','hotels'));
     }
 
     public function updatePackage($id, Request $request)
@@ -157,7 +159,6 @@ class HomeController extends Controller
 
         return redirect()->route('packages')->with('success', 'Package Updated Successfully');
     }
-
 
     public function deletePackage($id)
     {
@@ -465,10 +466,127 @@ class HomeController extends Controller
         return redirect()->route('hotels')->with('success', 'Hotel Updated Successfully');
     }
 
-
     public function deleteHotel($id)
     {
         Hotel::find($id)->delete();
         return back()->with('success', 'Hotel deleted Successfully');
+    }
+
+
+    public function hotelfacilityIndex(Request $request)
+    {
+        $data = HotelFacility::with('hotel')->orderBy('created_at', 'desc')->get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addColumn('image', function ($data) {
+                    $imageUrl = asset( $data->image); // Adjust the path accordingly
+                    return '<img src="' . $imageUrl . '" alt="Image" class="img-thumbnail" width="50" height="50">';
+                })
+                ->addColumn('hotel', function ($data) {
+                    $hotel = $data->hotel->name;
+                    return $hotel;
+                })
+                ->addColumn('status', function ($data) {
+                    $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
+                    if ($data->status == 1) {
+                        $status = '<span class="badge badge-pill badge-soft-success font-size-11">Active</span>';
+                    }
+                    return $status;
+                })
+                ->addColumn('actions', function ($data) {
+                    $actions = '<div class=" btn-group-sm" role="group" aria-label="Basic example">
+                    <a  href="' . route('edit.hotelfacility', $data->id) . '" class="btn btn-outline-primary btn-sm">Edit</a>
+                                        <button class="btn btn-outline-danger btn-sm delete-hotelfacility" data-id="' . $data->id . '">Delete</button>
+
+                    </div>';
+                    return $actions;
+                })
+                ->rawColumns(['image','hotel', 'status', 'actions'])
+                ->make(true);
+        }
+        return view('hotelfacility.index');
+    }
+    public function addhotelFacility()
+    {
+        $hotels = Hotel::where('status', 1)->get();
+        return view('hotelfacility.edit', compact('hotels'));
+    }
+    public function storehotelFacility(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+//            'hotel_id' => 'required',
+            'image' => 'image|mimes:jpeg,png,svg,jpg,gif|max:2048'
+
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $hotelfacility = new HotelFacility();
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'facility_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $hotelfacility->image;
+        }
+        $hotelfacility->image = $image;
+        $hotelfacility->name = $request->name;
+        $hotelfacility->hotel_id = $request->hotel_id;
+        $hotelfacility->description = $request->description;
+        if (!empty($request->status) && $request->status == 'on') {
+            $hotelfacility->status = 1;
+        } else {
+            $hotelfacility->status = 0;
+        }
+
+        $hotelfacility->save();
+
+        return redirect()->route('hotelfacility.index')->with('success', 'Hotel Facility saved successfully.');
+    }
+    public function edithotelFacility($id)
+    {
+        $hotelfacility = HotelFacility::find($id);
+        $hotels = Hotel::where('status', 1)->get();
+        return view('hotelfacility.edit', compact('hotelfacility', 'hotels'));
+    }
+    public function updatehotelFacility(Request $request, $id)
+    {
+        $hotelfacility = HotelFacility::find($id);
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'facility_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $hotelfacility->image;
+        }
+        $hotelfacility->image = $image;
+        $hotelfacility->name = $request->name;
+        $hotelfacility->hotel_id = $request->hotel_id;
+        $hotelfacility->description = $request->description;
+
+        if ($request->status == 'on') {
+            $hotelfacility->status = 1;
+        } else {
+            $hotelfacility->status = 0;
+        }
+        $hotelfacility->save();
+
+        return redirect()->route('hotelfacility.index')->with('success', 'Hotel Facility updated successfully.');
+    }
+    public function deletehotelFacility($id)
+    {
+        HotelFacility::find($id)->delete();
+        return back()->with('success', 'Hotel Facility deleted Successfully');
     }
 }

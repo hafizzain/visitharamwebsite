@@ -39,7 +39,7 @@
             @endisset
             @csrf
             <div class="row">
-                <div class="form-group col-sm-7 mb-2">
+                <div class="form-group col-sm-6 mb-2">
                     <label for="">Name<span class="text-danger">*</span></label>
                     <div class="input-group">
                         <input type="text" required class="form-control" name="name" @isset($service)value="{{$service->name}}" @endisset placeholder="Enter Name">
@@ -51,7 +51,7 @@
                     @enderror
                 </div>
 
-                <div class="form-group col-sm-7 mb-2">
+                <div class="form-group col-sm-6 mb-2">
                     <label for=""> Package<span class="text-danger">*</span></label>
                     <div class="input-group">
                     <select required class="form-control" name="package_id">
@@ -68,6 +68,11 @@
                     @enderror
                     </div>
 
+                <div class="form-group col-sm-6 mb-2">
+                    <label for="image">Image</label>
+                    <input type="file" class="form-control" name="image" id="image">
+                </div>
+
                 <div class="form-group col-sm-6 mb-2 d-flex align-items-end">
                     <label for="switch4" data-on-label="Yes" data-off-label="No">
                         <label for="">Status: </label>
@@ -77,10 +82,7 @@
                     </label>
                 </div>
 
-                <div class="form-group col-sm-12 mb-2">
-                    <label for="image">Image</label>
-                    <input type="file" class="form-control" name="image" id="image">
-                </div>
+
 
 
                 <div class="form-group col-sm-12 mb-2">

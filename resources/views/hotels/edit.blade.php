@@ -68,8 +68,8 @@
                             <div class="form-group col-sm-6 mb-2">
                                 <label for="">Description</label>
                                 <div class="input-group">
-                                    <textarea type="" class="form-control" name="description" @isset($hotel)value="{{$hotel->description}}" @endisset placeholder="Enter Description" >
-                                    </textarea>
+                                    <textarea class="form-control" name="description" placeholder="Enter Description">@isset($hotel){{ $hotel->description }}@endisset</textarea>
+
                                 </div>
                                 @error('description')
                                 <span class="invalid-feedback mt-0" @error('description')style="display: block" @enderror role="alert">
