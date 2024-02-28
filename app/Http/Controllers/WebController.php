@@ -274,7 +274,6 @@ class WebController extends Controller
 
         $validator = Validator::make($request->all(), [
             'first_name' => 'required|string',
-            'last_name' => 'required|string',
             'email' => 'required|email',
             'phone_number' => 'required|string',
             'message' => 'required|string',

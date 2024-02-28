@@ -47,28 +47,31 @@
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
             </div>
-            <form class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
+            <form action="{{ route('form.submit') }}" method="POST" class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
+              @csrf
                 <div class="flex sm:flex-nowrap flex-wrap items-center gap-3 md:gap-5">
                     <div class="mb-5 w-full">
-                        <label for="name" class="block mb-1 text-sm font-medium text-[#808080] ">Your Name</label>
-                        <input type="text" id="name" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Your Name" required />
+                        <label for="first_name" class="block mb-1 text-sm font-medium text-[#808080] ">Your Name</label>
+                        <input type="text" id="first_name" name="first_name" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Your Name" required />
                     </div>
+                    <input type="hidden" id="type" name="type" value="custom quote">
+
                     <div class="mb-5 w-full">
                         <label for="email" class="block mb-1 text-sm font-medium text-[#808080] ">Your Email</label>
-                        <input type="email" id="email" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Email Address" required />
+                        <input type="email" id="email" name="email" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Email Address" required />
                     </div>
                     <div class="mb-5 w-full relative">
-                        <label for="mobile" class="block mb-1 text-sm font-medium text-[#808080] ">Mobile Number</label>
+                        <label for="phone_number" class="block mb-1 text-sm font-medium text-[#808080] ">Mobile Number</label>
                         <!-- <input type="number" id="mobile" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Phone Number" required /> -->
                         <div class="w-full">
                             <div class="flex items-center">
-                                <select class="minimal w-[100px] sm:w-[70px] lg:w-[100px] xl:w-[120px] h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-l-lg rounded-r-none focus:ring-[#E1C844] focus:border-[#E1C844] block p-2.5">
+                                <select id="country_code" name="country_code" class="minimal w-[100px] sm:w-[70px] lg:w-[100px] xl:w-[120px] h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-l-lg rounded-r-none focus:ring-[#E1C844] focus:border-[#E1C844] block p-2.5">
                                    @foreach($dialCodes as $dialCode)
                                    <option value="{{ $dialCode['code'] }}">+{{ $dialCode['code'] }} {{ $dialCode['iso'] }}</option>
                                     @endforeach
                                 </select>
                                 <div class="relative w-full">
-                                    <input type="number" id="phone-input" class="h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-tr-lg rounded-br-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
+                                    <input type="number" id="phone_number" name="phone_number" class="h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-tr-lg rounded-br-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" required />
                                 </div>
                             </div>
                         </div>
@@ -76,7 +79,7 @@
                     </div>
                     <div class="mb-5 w-full">
                         <label for="adults" class="block mb-1 text-sm font-medium text-[#808080] ">Adults</label>
-                        <select id="adults" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                        <select id="adults" name="adults" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -153,7 +156,7 @@
                         @break
                         @endif
                         @endforeach
-                        
+
                     </div>
                     <hr class="w-full h-[1px] bg-transparent border-[#D9D9D9]">
                     </div>
@@ -179,7 +182,7 @@
              <button id="link3" onclick="showSection(3)" class="relative group menu-link">Ramadan Umrah Packages<span class="absolute bottom-[-5px] left-0 w-0 h-[3px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></button>
         </div>
 
-        <div id="menu1" class="grid lg:grid-cols-2 gap-10 py-10 pt-20"> 
+        <div id="menu1" class="grid lg:grid-cols-2 gap-10 py-10 pt-20">
             <div class="text-[#110928] py-5 sm:py-8 px-5 2xl:px-10 rounded-xl md:rounded-[20px] flex flex-col-reverse sm:flex-row items-center justify-between gap-10 sm:gap-0 2xl:gap-10 !bg-contain" style="background: linear-gradient(106.65deg, #E2CD58 1.47%, #F3EED2 44.02%, #F8E8B0 99.29%);">
                 <div class="h-full flex flex-col items-center sm:items-start sm:text-left text-center justify-between gap-3">
                     <div class="space-y-1">
