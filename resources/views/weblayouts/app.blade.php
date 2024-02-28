@@ -53,7 +53,7 @@
         background-image:
             linear-gradient(45deg, transparent 50%, gray 50%),
             linear-gradient(135deg, gray 50%, transparent 50%),
-            linear-gradient(to right, #ccc, #ccc);
+            linear-gradient(to right, transparent, transparent);
         background-position:
             calc(100% - 20px) calc(1em + 2px),
             calc(100% - 15px) calc(1em + 2px),
@@ -69,7 +69,7 @@
         background-image:
             linear-gradient(45deg, green 50%, transparent 50%),
             linear-gradient(135deg, transparent 50%, green 50%),
-            linear-gradient(to right, #ccc, #ccc);
+            linear-gradient(to right, transparent, transparent);
         background-position:
             calc(100% - 15px) 1em,
             calc(100% - 20px) 1em,
