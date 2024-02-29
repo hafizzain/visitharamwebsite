@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
 use App\Models\Contact;
+use App\Models\Newsletter;
 use App\Models\Package;
 use App\Models\Facility;
 use App\Models\Service;
@@ -531,6 +532,24 @@ class WebController extends Controller
 
         GlobalHelper::sendEmail('info@high5daycare.ca', "A new contact message has been recieved", 'emails.contact', $data);
         return redirect()->back()->with('success', 'Contact message submitted successfully');
+    }
+
+    public function newsletterForm(Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $data = Newsletter::create($request->all());
+
+        $data = [
+            'data' => $data,
+        ];
+        return redirect()->back()->with('success', 'Subscribe  successfully');
     }
 
 

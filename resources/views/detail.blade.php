@@ -26,7 +26,7 @@
                     <div class="flex flex-col sm:flex-row flex-wrap lg:flex-nowrap justify-center gap-2 items-center">
                         <img class="rounded-full w-20 h-20 lg:h-24 lg:w-24" src="{{ URL($service->image) }}" alt="img">
                         <div class="flex flex-col gap-1">
-                            <p class="text-base font-bold lg:w-20">{{$service->name}}</p>
+{{--                            <p class="text-base font-bold lg:w-20">{{$service->name}}</p>--}}
                             <p class="text-sm">{{$service->name}}</p>
                         </div>
                     </div>
