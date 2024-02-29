@@ -62,6 +62,8 @@ Route::get('/', [WebController::class, 'index'])->name('website');
 Route::get('/package-detail/{id}', [WebController::class, 'packageDetails'])->name('packages.showDetails');
 Route::post('form-submit',[WebController::class, 'contactForm'])->name('form.submit');
 
+Route::get('contacts',[HomeController::class, 'contactForms'])->name('contacts');
+
 
 Route::get('/about', function () {
     return view('about');

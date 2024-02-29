@@ -97,6 +97,12 @@
                                             <i class="bx bx-layout"></i>
                                             <span key="t-layouts" style="font-size: 12px;">Package Services</span>
                                         </a></li>
+
+
+                                    <li><a href="{{route('contacts')}}" key="t-light-sidebar">
+                                            <i class="bx bx-layout"></i>
+                                            <span key="t-layouts" style="font-size: 12px;">Contact Requests</span>
+                                        </a></li>
                                 </ul>
                             </div>
                             <!-- Sidebar -->

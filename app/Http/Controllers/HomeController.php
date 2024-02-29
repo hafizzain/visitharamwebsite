@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
+use App\Models\Contact;
 use App\Models\Hotel;
 use App\Models\HotelFacility;
 use App\Models\Package;
@@ -612,5 +613,29 @@ class HomeController extends Controller
     {
         HotelFacility::find($id)->delete();
         return back()->with('success', 'Hotel Facility deleted Successfully');
+    }
+
+
+
+    public function contactForms(Request $request)
+    {
+        $data = Contact::all();
+
+        if ($request->ajax()) {
+            return DataTables::of($data)
+
+                ->addColumn('email', function ($data) {
+                    $email = $data->email;
+                    return $email;
+                })
+                ->addColumn('phone_number', function ($data) {
+                    $phoneNumber = $data->country_code . '-' . $data->phone_number;
+                    return $phoneNumber;
+                })
+
+                ->rawColumns(['email','phone_number'])
+                ->make(true);
+        }
+        return view('contact.index');
     }
 }

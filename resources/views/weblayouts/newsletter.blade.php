@@ -13,7 +13,7 @@
             <div class="w-full">
                 <form
                     class="border border-[#D5D8DE] w-full flex rounded-full bg-white text-[#323941] px-1 py-1">
-                    <input placeholder="Enter your email address" class="ml-4 w-full appearance-none bg-transparent focus:outline-none">
+                    <input placeholder="Enter your email address" required class="ml-4 w-full appearance-none bg-transparent focus:outline-none">
                     <button class="ml-3 uppercase text-white shrink-0 rounded-full bg-[#110928]  px-6 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#050210]" type="submit">Subscribe</button>
                 </form>
             </div>
