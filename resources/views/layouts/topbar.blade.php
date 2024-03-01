@@ -103,6 +103,11 @@
                                             <i class="bx bx-layout"></i>
                                             <span key="t-layouts" style="font-size: 12px;">Contact Requests</span>
                                         </a></li>
+
+                                    <li><a href="{{route('customerreview.index')}}" key="t-light-sidebar">
+                                            <i class="bx bx-layout"></i>
+                                            <span key="t-layouts" style="font-size: 12px;">Customer Reviews</span>
+                                        </a></li>
                                 </ul>
                             </div>
                             <!-- Sidebar -->

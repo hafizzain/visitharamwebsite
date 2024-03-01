@@ -82,7 +82,7 @@
                     <label for="switch4" data-on-label="Yes" data-off-label="No">
                         <label for="">Status: </label>
                         <div class="form-check form-switch form-switch-lg mb-3" dir="ltr">
-                            <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg" @if(isset($facility) && $facility->status == 1) checked="" @endif>
+                            <input class="form-check-input" name="status" type="checkbox" id="SwitchCheckSizelg" @if(isset($hotelfacility) && $hotelfacility->status == 1) checked="" @endif>
                         </div>
                     </label>
                 </div>

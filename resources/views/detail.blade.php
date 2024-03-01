@@ -224,37 +224,18 @@
         <div class="">
             <div class="swiper customerSwiper py-10">
                 <div class="swiper-wrapper">
-
+                    @foreach ($customerreviews as $review)
                     <div class="swiper-slide bg-white border border-[#E3E3E3] rounded-[20px] p-5 md:p-8 flex flex-col gap-7">
-                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+                        <p>{{$review->review}}</p>
                         <div class="flex gap-5 items-center">
-                            <img class="rounded-full h-20 w-20" src="{{ URL("assets/img/details/user1.png") }}" alt="user">
+                            <img class="rounded-full h-20 w-20" src="{{ URL($review->image) }}" alt="user">
                             <div>
-                                <h6 class="text-[#09B175] text-lg">LORAINE HUCHLER</h6>
-                                <p class="text-sm text-[#808080]">PRESIDENT, MARTECH SYSTEMS, INC</p>
+                                <h6 class="text-[#09B175] text-lg">{{$review->name}}</h6>
+                                <p class="text-sm text-[#808080]">{{$review->company_name}}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide bg-white border border-[#E3E3E3] rounded-[20px] p-5 md:p-8 flex flex-col gap-7">
-                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                        <div class="flex gap-5 items-center">
-                            <img class="rounded-full h-20 w-20" src="{{ URL("assets/img/details/user1.png") }}" alt="user">
-                            <div>
-                                <h6 class="text-[#09B175] text-lg">LORAINE HUCHLER</h6>
-                                <p class="text-sm text-[#808080]">PRESIDENT, MARTECH SYSTEMS, INC</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide bg-white border border-[#E3E3E3] rounded-[20px] p-5 md:p-8 flex flex-col gap-7">
-                        <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
-                        <div class="flex gap-5 items-center">
-                            <img class="rounded-full h-20 w-20" src="{{ URL("assets/img/details/user1.png") }}" alt="user">
-                            <div>
-                                <h6 class="text-[#09B175] text-lg">LORAINE HUCHLER</h6>
-                                <p class="text-sm text-[#808080]">PRESIDENT, MARTECH SYSTEMS, INC</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
 
                 </div>
                 <div class="swiper-pagination swiper-pagination1"></div>

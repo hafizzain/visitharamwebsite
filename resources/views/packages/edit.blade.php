@@ -107,7 +107,7 @@
                             <div class="form-group col-sm-6 mb-2">
                                 <label for=""> Hotel<span class="text-danger">*</span></label>
                                 <div class="input-group">
-                                    <select required class="form-control" name="package_id">
+                                    <select required class="form-control" name="hotel_id">
                                         <option value="">Select Hotel</option>
                                         @foreach ($hotels as $hotel)
                                             <option value="{{ $hotel->id }}" @isset($package) @if ($package->hotel_id == $hotel->id) selected @endif @endisset>{{ $hotel->name }}</option>
@@ -123,7 +123,7 @@
 
                             <div class="form-group col-sm-6 mb-2">
                                 <label for="images">Images</label>
-                                <input type="file" class="form-control" name="files[]" id="images" multiple>
+                                <input type="file" class="form-control" required name="files[]" id="images" multiple>
 
                                 @if(isset($package) && $package->media->count() > 0)
                                     <div class="mt-3">

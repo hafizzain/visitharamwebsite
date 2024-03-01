@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
 use App\Models\Contact;
+use App\Models\CustomerReview;
 use App\Models\Newsletter;
 use App\Models\Package;
 use App\Models\Facility;
@@ -266,6 +267,7 @@ class WebController extends Controller
     public function packageDetails($id)
     {
         $package = Package::findOrFail($id);
+        $customerreviews = CustomerReview::where('status', 1)->get();
         $packages = Package::where('active', 1)->get();
         $dialCodes = [
             'Afghanistan' => ['code' => '93', 'iso' => 'AF'],
@@ -509,7 +511,7 @@ class WebController extends Controller
             'Zambia' => ['code' => '260', 'iso' => 'ZM'],
             'Zimbabwe' => ['code' => '263', 'iso' => 'ZW'],
         ];
-        return view('detail', compact('package','packages','dialCodes'));
+        return view('detail', compact('package','packages','dialCodes','customerreviews'));
     }
 
     public function contactForm(Request $request)

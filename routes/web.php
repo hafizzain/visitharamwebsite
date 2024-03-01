@@ -58,6 +58,13 @@ Route::get('hotel/edit/{id}', [HomeController::class, 'editHotel'])->name('edit.
 Route::post('hotel/update/{id}', [HomeController::class, 'updateHotel'])->name('update.hotel');
 Route::delete('/delete/hotel/{id}', [HomeController::class, 'deleteHotel'])->name('delete.hotel');
 
+Route::get('customerreview', [HomeController::class, 'customerreviewIndex'])->name('customerreview.index');
+Route::get('add-customerreview', [HomeController::class, 'addcustomerReview'])->name('add.customerreview');
+Route::post('add-customerreview', [HomeController::class, 'storecustomerReview'])->name('insert.customerreview');
+Route::get('edit-customerreview/{id}', [HomeController::class, 'editcustomerReview'])->name('edit.customerreview');
+Route::post('update-customerreview/{id}', [HomeController::class, 'updatecustomerReview'])->name('update.customerreview');
+Route::delete('/delete/customerreview/{id}', [HomeController::class, 'deletecustomerReview'])->name('delete.customerreview');
+
 Route::get('/', [WebController::class, 'index'])->name('website');
 Route::get('/package-detail/{id}', [WebController::class, 'packageDetails'])->name('packages.showDetails');
 Route::post('form-submit',[WebController::class, 'contactForm'])->name('form.submit');

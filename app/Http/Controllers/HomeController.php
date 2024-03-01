@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
 use App\Models\Contact;
+use App\Models\CustomerReview;
 use App\Models\Hotel;
 use App\Models\HotelFacility;
 use App\Models\Package;
@@ -637,5 +638,118 @@ class HomeController extends Controller
                 ->make(true);
         }
         return view('contact.index');
+    }
+
+
+    public function customerreviewIndex(Request $request)
+    {
+        $data = CustomerReview::orderBy('created_at', 'desc')->get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addColumn('image', function ($data) {
+                    $imageUrl = asset( $data->image); // Adjust the path accordingly
+                    return '<img src="' . $imageUrl . '" alt="Image" class="img-thumbnail" width="50" height="50">';
+                })
+                ->addColumn('status', function ($data) {
+                    $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
+                    if ($data->status == 1) {
+                        $status = '<span class="badge badge-pill badge-soft-success font-size-11">Active</span>';
+                    }
+                    return $status;
+                })
+                ->addColumn('actions', function ($data) {
+                    $actions = '<div class=" btn-group-sm" role="group" aria-label="Basic example">
+                    <a  href="' . route('edit.customerreview', $data->id) . '" class="btn btn-outline-primary btn-sm">Edit</a>
+                                        <button class="btn btn-outline-danger btn-sm delete-customerreview" data-id="' . $data->id . '">Delete</button>
+
+                    </div>';
+
+                    return $actions;
+                })
+                ->rawColumns(['image', 'status', 'actions'])
+                ->make(true);
+        }
+        return view('customerreview.index');
+    }
+    public function addcustomerReview()
+    {
+        return view('customerreview.edit');
+    }
+    public function storecustomerReview(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'company_name' => 'required',
+            'image' => 'image|mimes:jpeg,png,svg,jpg,gif|max:2048'
+
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $customerreview = new CustomerReview();
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'customer_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $customerreview->image;
+        }
+        $customerreview->image = $image;
+        $customerreview->name = $request->name;
+        $customerreview->company_name = $request->company_name;
+        $customerreview->review = $request->review;
+        if (!empty($request->status) && $request->status == 'on') {
+            $customerreview->status = 1;
+        } else {
+            $customerreview->status = 0;
+        }
+
+        $customerreview->save();
+
+        return redirect()->route('customerreview.index')->with('success', 'Customer Review saved successfully.');
+    }
+    public function editcustomerReview($id)
+    {
+        $customerreview = CustomerReview::find($id);
+
+        return view('customerreview.edit', compact('customerreview'));
+    }
+    public function updatecustomerReview(Request $request, $id)
+    {
+        $customerreview = CustomerReview::find($id);
+        $uploadedFiles = [];
+        $image = '';
+
+        if ($request->hasFile('image')) {
+            $uploadedFiles['image'] = $request->file('image');
+            $uploadedFiles = GlobalHelper::uploadAndSaveFile($uploadedFiles, 'customer_images');
+
+            $image = $uploadedFiles['image'] ?? null;
+        } elseif (!empty($id)) {
+            $image = $customerreview->image;
+        }
+        $customerreview->image = $image;
+        $customerreview->name = $request->name;
+        $customerreview->company_name = $request->company_name;
+        $customerreview->review = $request->review;
+
+        if ($request->status == 'on') {
+            $customerreview->status = 1;
+        } else {
+            $customerreview->status = 0;
+        }
+        $customerreview->save();
+
+        return redirect()->route('customerreview.index')->with('success', 'Customer Review updated successfully.');
+    }
+    public function deletecustomerReview($id)
+    {
+        CustomerReview::find($id)->delete();
+        return back()->with('success', 'Customer Review deleted Successfully');
     }
 }
