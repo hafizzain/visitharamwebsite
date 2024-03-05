@@ -78,7 +78,12 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/faq', function () {
+    return view('faq');
+})->name('contact');
+
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
+
 

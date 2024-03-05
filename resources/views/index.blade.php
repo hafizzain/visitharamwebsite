@@ -323,12 +323,24 @@
  }
 
 
- </script>
-
+</script>
 
 @include('weblayouts.about')
 @include('weblayouts.partner_hotels')
 @include('weblayouts.partner')
+
+<section class="bg-white">
+    <div  class="container mx-auto px-5 lg:px-10 xl:px-24 pt-2 pb-12">
+        <div class="space-y-3 md:mx-auto flex justify-center">
+            <!-- <p class="text-3xl font-bold text-[#110928]"> All flights and flight-inclusive holidays</p> -->
+            <p class="italic max-w-[60rem] text-justify sm:text-center">
+                    All the flights and flight-inclusive holidays [in this brochure] [on this website - as appropriate] are financially protected by the ATOL scheme. When you pay you will be supplied with an ATOL Certificate. Please ask for it and check to ensure that everything you booked (flights, hotels and other services) is listed on it. Please see our booking conditions for further information or for more information about financial protection and the ATOL Certificate go to: <a class="text-red-600 hover:underline" href="www.atol.org.uk/ATOLCertificate" target="_blank">www.atol.org.uk/ATOLCertificate</a> .
+            </p> 
+        </div>
+        
+    </div>
+</section>
+
 @include('weblayouts.newsletter')
 
 

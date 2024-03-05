@@ -14,7 +14,7 @@
                     <li><a href="/contact" class="hover:underline">Contact Us</a></li>
                     <li><a href="#" class="hover:underline">Our Team</a></li>
                     <li><a href="#" class="hover:underline">24/7 Operations</a></li>
-                    <li><a href="#" class="hover:underline">FAQ’s</a></li>
+                    <li><a href="/faq" class="hover:underline">FAQ’s</a></li>
                     <li><a href="#" class="hover:underline">Visa</a></li>
                     <li><a href="#" class="hover:underline">Beat my quote</a></li>
                 </ul>
