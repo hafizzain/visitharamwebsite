@@ -1,15 +1,15 @@
 @extends('layouts.app')
-@section('title', 'Packages')
+@section('title', 'Categories')
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                <h4 class="mb-sm-0 font-size-18">Packages</h4>
+                <h4 class="mb-sm-0 font-size-18">Categories</h4>
                 {{--                {{ $errors }}--}}
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Packages</li>
+                        <li class="breadcrumb-item active">Categories</li>
                     </ol>
                 </div>
 
@@ -17,7 +17,7 @@
         </div>
     </div>
     <div class="w-100">
-        <a href="{{ route('add.package') }}" class="btn btn-primary">Add Package</a>
+        <a href="{{ route('add.category') }}" class="btn btn-primary">Add Category</a>
         <div class="row justify-content-center">
             <div class="col-md-12 mt-4">
                 <div class="card p-4 rounded cShadow">
@@ -25,12 +25,7 @@
                         <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Hotel</th>
-                            <th>Category</th>
-                            <th>Days</th>
-                            <th>Nights</th>
-                            <th>Price</th>
-                            <th>Description</th>
+                            <th>Slug</th>
                             <th>Status</th>
                             <th>Actions</th>
                         </tr>
@@ -53,34 +48,29 @@
         $('#datatable').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '/packages',
+            ajax: '/categories',
             columns: [
                 {data: 'name', name: 'name'},
-                {data: 'hotel', name: 'hotel'},
-                {data: 'category', name: 'category'},
-                {data: 'days', name: 'days'},
-                {data: 'nights', name: 'nights'},
-                {data: 'price', name: 'price'},
-                {data: 'description', name: 'description'},
+                {data: 'slug', name: 'slug'},
                 {data: 'status', name: 'status'},
                 {data: 'actions', name: 'actions'},
             ]
         });
 
 
-        $('#datatable').on('click', '.delete-package', function () {
-            var packageId = $(this).data('id');
+        $('#datatable').on('click', '.delete-category', function () {
+            var categoryId = $(this).data('id');
 
-            if (confirm('Are you sure you want to delete this package?')) {
+            if (confirm('Are you sure you want to delete this category?')) {
                 $.ajax({
-                    url: '/delete/package/' + packageId,
+                    url: '/delete/category/' + categoryId,
                     type: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     success: function (data) {
                         dataTable.ajax.reload();
-                        showSnackbar('Package deleted successfully.');
+                        showSnackbar('category deleted successfully.');
                         setTimeout(function () {
                             location.reload(); // Reload the window after a short delay
                         }, 2000); // 2000 milliseconds (adjust as needed)

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Packages')
+@section('title', 'Hotels')
 @section('content')
     <div class="row">
         <div class="col-12">

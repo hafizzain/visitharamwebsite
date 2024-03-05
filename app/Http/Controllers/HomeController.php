@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\CustomerReview;
 use App\Models\Hotel;
@@ -56,8 +57,12 @@ class HomeController extends Controller
                     return $status;
                 })
                 ->addColumn('hotel', function ($data) {
-                    $hotel = $data->hotel->name;
+                    $hotel = $data->hotel->name ?? 'N/A';
                     return $hotel;
+                })
+                ->addColumn('category', function ($data) {
+                    $category = optional($data->category)->name ?? 'N/A';
+                    return $category;
                 })
                 ->addColumn('actions', function ($data) {
 
@@ -68,7 +73,7 @@ class HomeController extends Controller
                                             </div>';
                     return $actions;
                 })
-                ->rawColumns(['status', 'actions','hotel'])
+                ->rawColumns(['status', 'actions','hotel','category'])
                 ->make(true);
         }
         return view('packages.index');
@@ -77,7 +82,8 @@ class HomeController extends Controller
     public function addPackage(Request $request)
     {
         $hotels = Hotel::where('status', 1)->get();
-        return view('packages.edit', compact('hotels'));
+        $categories = Category::where('status', 1)->get();
+        return view('packages.edit', compact('categories','hotels'));
     }
 
     public function insertPackage(Request $request)
@@ -110,6 +116,7 @@ class HomeController extends Controller
         $package->days = $request->days;
         $package->nights = $request->nights;
         $package->hotel_id = $request->hotel_id;
+        $package->category_id = $request->category_id;
         $package->price = $request->price;
         $package->description = $request->description;
         $package->active = $request->status;
@@ -128,7 +135,8 @@ class HomeController extends Controller
     {
         $package = Package::find($id);
         $hotels = Hotel::where('status', 1)->get();
-        return view('packages.edit', compact('package','hotels'));
+        $categories = Category::where('status', 1)->get();
+        return view('packages.edit', compact('package','hotels','categories'));
     }
 
     public function updatePackage($id, Request $request)
@@ -156,6 +164,7 @@ class HomeController extends Controller
         $package->price = $request->price;
         $package->description = $request->description;
         $package->hotel_id = $request->hotel_id;
+        $package->category_id = $request->category_id;
         $package->active = $request->status;
         $package->save();
 
@@ -178,7 +187,7 @@ class HomeController extends Controller
                     return '<img src="' . $imageUrl . '" alt="Image" class="img-thumbnail" width="50" height="50">';
                 })
                 ->addColumn('package', function ($data) {
-                    $package = $data->package->name;
+                    $package = $data->package->name ?? 'N/A';
                     return $package;
                 })
                 ->addColumn('status', function ($data) {
@@ -293,7 +302,7 @@ class HomeController extends Controller
                     return '<img src="' . $imageUrl . '" alt="Image" class="img-thumbnail" width="50" height="50">';
                 })
                 ->addColumn('package', function ($data) {
-                    $package = $data->package->name;
+                    $package = $data->package->name ?? 'N/A';
                     return $package;
                 })
                 ->addColumn('status', function ($data) {
@@ -509,7 +518,7 @@ class HomeController extends Controller
                     return '<img src="' . $imageUrl . '" alt="Image" class="img-thumbnail" width="50" height="50">';
                 })
                 ->addColumn('hotel', function ($data) {
-                    $hotel = $data->hotel->name;
+                    $hotel = $data->hotel->name ?? 'N/A';
                     return $hotel;
                 })
                 ->addColumn('status', function ($data) {
@@ -751,5 +760,106 @@ class HomeController extends Controller
     {
         CustomerReview::find($id)->delete();
         return back()->with('success', 'Customer Review deleted Successfully');
+    }
+
+
+
+
+    public function categories(Request $request)
+    {
+        $data = Category::all();
+
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addColumn('status', function ($data) {
+                    //                    dd($riders);
+                    $status = '<span class="badge badge-pill badge-soft-danger font-size-11">InActive</span>';
+                    if ($data->status == 1) {
+                        $status = '<span class="badge badge-pill badge-soft-success font-size-11">Active</span>';
+                    }
+                    return $status;
+                })
+                ->addColumn('actions', function ($data) {
+
+                    $actions = '<div class="btn-group-sm" role="group" aria-label="Basic example">
+                    <a href="' . route('edit.category', $data->id) . '" class="btn btn-outline-primary btn-sm">Edit</a>
+                    <button class="btn btn-outline-danger btn-sm delete-category" data-id="' . $data->id . '">Delete</button>
+
+                                            </div>';
+                    return $actions;
+                })
+                ->rawColumns(['status', 'actions'])
+                ->make(true);
+        }
+        return view('categories.index');
+    }
+
+    public function addCategory(Request $request)
+    {
+        return view('categories.edit');
+    }
+
+    public function insertCategory(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if ($request->has('status') && $request->status == 'on') {
+            $request['status'] = 1;
+        } else {
+            $request['status'] = 0;
+        }
+
+        $category = new Category();
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->status = $request->status;
+        $category->save();
+
+        return redirect()->route('categories')->with('success', 'Category Added Successfully');
+    }
+
+    public function editCategory($id)
+    {
+        $category = Category::find($id);
+        return view('categories.edit', compact('category'));
+    }
+
+    public function updateCategory($id, Request $request)
+    {
+
+        $validator = Validator::make($request->all(), [
+            'name' => ['required'],
+
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        if ($request->has('status') && $request->status == 'on') {
+            $request['status'] = 1;
+        } else {
+            $request['status'] = 0;
+        }
+
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->slug = $request->slug;
+        $category->status = $request->status;
+        $category->save();
+
+        return redirect()->route('categories')->with('success', 'Category Updated Successfully');
+    }
+
+    public function deleteCategory($id)
+    {
+        Category::find($id)->delete();
+        return back()->with('success', 'Category deleted Successfully');
     }
 }

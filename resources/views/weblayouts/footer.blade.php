@@ -23,9 +23,9 @@
                 <h2 class="mb-4 font-semibold text-gray-900 uppercase ">Our Terms</h2>
                 <ul class=" flex flex-col gap-2">
                     <li><a href="#" class="hover:underline">Travel Insurance</a></li>
-                    <li><a href="#" class="hover:underline">Terms And Conditions</a></li>
+                    <li><a href="/terms-conditions" class="hover:underline">Terms And Conditions</a></li>
                     <li><a href="#" class="hover:underline">Safi Assurance</a></li>
-                    <li><a href="#" class="hover:underline">Privacy Policy Statement</a></li>
+                    <li><a href="/privacy-policy" class="hover:underline">Privacy Policy Statement</a></li>
                     <li><a href="#" class="hover:underline">Payment Security</a></li>
                     <li><a href="#" class="hover:underline">Our Responsibility</a></li>
                     <li><a href="#" class="hover:underline">Download</a></li>

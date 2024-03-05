@@ -532,7 +532,7 @@ class WebController extends Controller
             'data' => $data,
         ];
 
-        GlobalHelper::sendEmail('info@high5daycare.ca', "A new contact message has been recieved", 'emails.contact', $data);
+        GlobalHelper::sendEmail('info@visitharam.ca', "A new contact message has been recieved", 'emails.contact', $data);
         return redirect()->back()->with('success', 'Contact message submitted successfully');
     }
 

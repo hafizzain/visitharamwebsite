@@ -58,6 +58,13 @@ Route::get('hotel/edit/{id}', [HomeController::class, 'editHotel'])->name('edit.
 Route::post('hotel/update/{id}', [HomeController::class, 'updateHotel'])->name('update.hotel');
 Route::delete('/delete/hotel/{id}', [HomeController::class, 'deleteHotel'])->name('delete.hotel');
 
+Route::get('categories', [HomeController::class, 'categories'])->name('categories');
+Route::get('category/add', [HomeController::class, 'addCategory'])->name('add.category');
+Route::post('category/insert', [HomeController::class, 'insertCategory'])->name('insert.category');
+Route::get('category/edit/{id}', [HomeController::class, 'editHotel'])->name('edit.category');
+Route::post('category/update/{id}', [HomeController::class, 'updateCategory'])->name('update.category');
+Route::delete('/delete/category/{id}', [HomeController::class, 'deleteCategory'])->name('delete.category');
+
 Route::get('customerreview', [HomeController::class, 'customerreviewIndex'])->name('customerreview.index');
 Route::get('add-customerreview', [HomeController::class, 'addcustomerReview'])->name('add.customerreview');
 Route::post('add-customerreview', [HomeController::class, 'storecustomerReview'])->name('insert.customerreview');
@@ -76,6 +83,14 @@ Route::get('contacts',[HomeController::class, 'contactForms'])->name('contacts')
 
 Route::get('/about', function () {
     return view('about');
+});
+
+Route::get('/terms-conditions', function () {
+    return view('/terms-conditions');
+});
+
+Route::get('/privacy-policy', function () {
+    return view('/privacy-policy');
 });
 
 Route::get('/contact', function () {

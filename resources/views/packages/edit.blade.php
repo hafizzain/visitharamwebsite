@@ -122,8 +122,25 @@
                             </div>
 
                             <div class="form-group col-sm-6 mb-2">
+                                <label for=""> Category<span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <select required class="form-control" name="category_id">
+                                        <option value="">Select Hotel</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}" @isset($package) @if ($package->category_id == $category->id) selected @endif @endisset>{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('category_id')
+                                <span class="invalid-feedback mt-0" @error('category_id') style="display: block" @enderror role="alert">
+                    <strong>{{ $message }}</strong>
+                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-sm-6 mb-2">
                                 <label for="images">Images</label>
-                                <input type="file" class="form-control" required name="files[]" id="images" multiple>
+                                <input type="file" class="form-control"  name="files[]" id="images" multiple>
 
                                 @if(isset($package) && $package->media->count() > 0)
                                     <div class="mt-3">
