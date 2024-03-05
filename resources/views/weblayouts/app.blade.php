@@ -155,6 +155,10 @@
         }
     }
 
+    html,body{
+        scroll-behavior: smooth;
+    }
+
 </style>
 <body>
 
@@ -182,7 +186,7 @@
 
         </ul>
         <a class="md:hidden" href="#" id="hamburger"><i class="fa-solid fa-bars text-white text-2xl"></i></a>
-        <a href="#" class="rounded-full bg-[#E1C845] px-2.5 py-1 md:px-3.5 md:py-1.5 text-sm font-semibold shadow-sm flex items-center gap-1 sm:gap-2"><p class="uppercase text-[#180F34]">Beat my Quote</p> <p class="flex justify-center items-center bg-white rounded-full w-8 h-8 text-[#110928]"><i class="fa-solid fa-arrow-right"></i></p></a>
+        <a href="/#qoute" class="rounded-full bg-[#E1C845] px-2.5 py-1 md:px-3.5 md:py-1.5 text-sm font-semibold shadow-sm flex items-center gap-1 sm:gap-2"><p class="uppercase text-[#180F34]">Beat my Quote</p> <p class="flex justify-center items-center bg-white rounded-full w-8 h-8 text-[#110928]"><i class="fa-solid fa-arrow-right"></i></p></a>
     </div>
     <!-- Mobile menu, show/hide based on menu open state. -->
     <div id="sidebar" class="hidden md:hidden">

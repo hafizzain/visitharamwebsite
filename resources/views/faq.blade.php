@@ -55,7 +55,7 @@ Please note that you should check your flight status 72 hours prior to your depa
                             <button onclick="toggleAccordion(this)"><i class="fa-solid fa-chevron-down"></i></button>
                         </div>
                         <div class="menu__detail__container hidden py-7 space-y-3">
-                            <p>There are two types of visas available for Umrah: <br>   
+                            <p>There are two types of visas available for Umrah: <br>
 </p>
 <p>
 • Tourist Visa <br>
@@ -81,7 +81,7 @@ For an Umrah Visa, if you hold non-European nationality, you need to apply for a
                             <p>4- Valid copy of issued E-Tickets.</p>
                             <p>5- Valid copy of issued Hotel Vouchers.</p>
                             <p>You need to submit all these documents to our Head office 262-A Upper Tooting Road London SW17 0DN for issuance of Visa. You can submit these documents physically or even you can send these documents via post with return paid envelope address.</p>
-                            
+
                         </div>
                     </div>
                     <div class="">
@@ -129,14 +129,14 @@ For an Umrah Visa, if you hold non-European nationality, you need to apply for a
                         <div class="menu__detail__container hidden py-7 space-y-3 border-t border-[#DFDFDF] border-solid">
                            <p>To get in touch with Makkah Tours, you can use the following contact information:</p>
                            <p>• Dial: <a class="font-medium text-blue-600 hover:underline" href="tel:0203-195-8700">0203-195-8700</a></p>
-                            <p>• WhatsApp Message: <a class="font-medium text-blue-600 hover:underline" href="https://wa.me/447418378756">0741-837-8756</a></p>
+                            <p>• WhatsApp Message: <a class="font-medium text-blue-600 hover:underline" href="https://wa.me/2039258000">+0203 925 8000</a></p>
                             <p>• Email: <a class="font-medium text-blue-600 hover:underline" href="mailto:info@makkahtour.co.uk">info@makkahtour.co.uk</a></p>
                             <p>Alternatively, you can also reach us out through following social media platforms:</p>
                             <p><a class="font-medium text-blue-600 hover:underline" href="https://www.facebook.com/makahtour" target="_blank">• https://www.facebook.com/makahtour</a></p>
-                            <p><a class="font-medium text-blue-600 hover:underline" href="https://youtube.com/@makkahtouruk" target="_blank">• https://youtube.com/@makkahtouruk </a></p>                      
+                            <p><a class="font-medium text-blue-600 hover:underline" href="https://youtube.com/@makkahtouruk" target="_blank">• https://youtube.com/@makkahtouruk </a></p>
                             </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

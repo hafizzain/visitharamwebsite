@@ -59,7 +59,7 @@
 
 <section>
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-2 md:pt-80 xl:pt-80 2xl:pt-72">
-        <div class="shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
+        <div id="#qoute" class="shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
             </div>
