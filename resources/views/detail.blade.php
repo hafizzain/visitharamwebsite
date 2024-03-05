@@ -49,7 +49,7 @@
                 </div>
                 <hr class="w-full border-[#CCCCCC]">
                 <div class="flex items-center gap-5 sm:gap-2 md:gap-5 text-sm lg:text-base pt-4">
-                    <button class="rounded-full w-full border-2 border-black py-2.5 font-semibold"><i class="fa-solid fa-phone text-[#E1C844]"></i> +92 123 456 7890</button>
+                    <button class="rounded-full w-full border-2 border-black py-2.5 font-semibold"><i class="fa-solid fa-phone text-[#E1C844]"></i> +02039258000</button>
                     <button class="rounded-full w-full border-2 border-[#09B175] bg-[#09B175] text-white py-2.5 font-semibold">Book Now</button>
                 </div>
             </div>
@@ -271,7 +271,7 @@
                 @foreach ($packages as $package)
                 <div class="swiper-slide text-[#110928] flex flex-col gap-5 items-center bg-white border border-[#C8C8C8] rounded-[20px] py-4 lg:py-7">
                     <div class="py-4 px-4 md:px-8 font-semibold text-2xl space-x-2" style="background: url('{{ asset('assets/img/header/bg.png') }}') no-repeat center/contain;">
-                        <span>${{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
+                        <span>£{{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
                     </div>
                     <h4 class="text-2xl md:text-3xl font-semibold text-center">{{$package->name}}</h4>
                     <div class="w-full">
@@ -298,7 +298,7 @@
                     <hr class="w-full h-[1px] bg-transparent border-[#D9D9D9]">
                     </div>
                     <div class="flex justify-between items-center w-full px-4 lg:px-7">
-                        <a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="space-x-2 font-semibold text-sm md:text-base"><i class="fa-solid fa-phone text-[#E1C844]"></i> +92 123 456 7890</a>
+                        <a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="space-x-2 font-semibold text-sm md:text-base"><i class="fa-solid fa-phone text-[#E1C844]"></i> +02039258000</a>
                         <a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="bg-[#110928] px-6 md:px-8 py-2 xl:py-3 text-white rounded-full">View Details</a>
                     </div>
                 </div>

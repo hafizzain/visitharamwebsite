@@ -128,8 +128,8 @@ For an Umrah Visa, if you hold non-European nationality, you need to apply for a
                         </div>
                         <div class="menu__detail__container hidden py-7 space-y-3 border-t border-[#DFDFDF] border-solid">
                            <p>To get in touch with Makkah Tours, you can use the following contact information:</p>
-                           <p>• Dial: <a class="font-medium text-blue-600 hover:underline" href="tel:0203-195-8700">0203-195-8700</a></p>
-                            <p>• WhatsApp Message: <a class="font-medium text-blue-600 hover:underline" href="https://wa.me/2039258000">+0203 925 8000</a></p>
+                           <p>• Dial: <a class="font-medium text-blue-600 hover:underline" href="tel:0203-195-8700">+0203 925 8000</a></p>
+                            <p>• WhatsApp Message: <a class="font-medium text-blue-600 hover:underline" href="https://wa.me/02039258000">+0203 925 8000</a></p>
                             <p>• Email: <a class="font-medium text-blue-600 hover:underline" href="mailto:info@makkahtour.co.uk">info@makkahtour.co.uk</a></p>
                             <p>Alternatively, you can also reach us out through following social media platforms:</p>
                             <p><a class="font-medium text-blue-600 hover:underline" href="https://www.facebook.com/makahtour" target="_blank">• https://www.facebook.com/makahtour</a></p>

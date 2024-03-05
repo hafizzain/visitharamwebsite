@@ -240,7 +240,7 @@
         <div class="flex-1 justify-end sm:flex-none flex gap-0 sm:gap-8 items-center">
             <img class="scale-75 sm:scale-100" src="{{ URL("assets/img/partner/atol.svg") }}" alt="atol">
             <img class="scale-75 sm:scale-100" src="{{ URL("assets/img/partner/iata.svg") }}" alt="iata">
-            <a href="#" class="text-sm font-bold flex items-center"><img class="scale-75 sm:scale-100" src="{{ URL("assets/img/whatsapp.svg") }}" alt="whatsapp">+0203 925 8000</a>
+            <a href="https://wa.me/02039258000" class="text-sm font-bold flex items-center"><img class="scale-75 sm:scale-100" src="{{ URL("assets/img/whatsapp.svg") }}" alt="whatsapp">+0203 925 8000</a>
         </div>
 
     </nav>

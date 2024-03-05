@@ -32,7 +32,7 @@
                         <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>Booking your flights.</span></li>
                         <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>Budget airlines as well as luxury travel facilities are supported.</span></li>
                         <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>You can choose to stay in any hotel you desire.</span></li>
-                        <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>3-star to 7-star hotel options.</span></li>
+                        <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>3-star to 5-star hotel options.</span></li>
                         <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>Situated close to Haramain.</span></li>
                         <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>Handling all the visa documentation, processing, approval, and delivery phases for you.</span></li>
                         <li class="space-x-1"><i class="fa-solid fa-check text-[#09B175]"></i> <span>Facilitating your Ziyarath Travel.</span></li>
@@ -45,7 +45,7 @@
                     <div class="h-[300px] w-[300px] !bg-cover xl:h-[500px] xl:w-[500px] 2xl:w-[500px] 2xl:h-[500px]" style="background: url('{{ asset('assets/img/travel/img1.png') }}') no-repeat;">
                         <div class="w-40 h-40 font-semibold text-xl text-white bg-[#09B175] rounded-full outline-white outline-none -outline-offset-8 flex flex-col items-center justify-center">
                             <p>3-star to</p>
-                            <p>7-star hotel</p>
+                            <p>5-star hotel</p>
                         </div>
                     </div>
                 </div>
