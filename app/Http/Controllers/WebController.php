@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helper\GlobalHelper;
+use App\Models\Category;
 use App\Models\Contact;
 use App\Models\CustomerReview;
 use App\Models\Newsletter;
@@ -261,7 +262,8 @@ class WebController extends Controller
             'Zambia' => ['code' => '260', 'iso' => 'ZM'],
             'Zimbabwe' => ['code' => '263', 'iso' => 'ZW'],
         ];
-        return view('index', compact('packages','dialCodes'));
+        $categories = Category::where('status', 1)->get();
+        return view('index', compact('packages','dialCodes','categories'));
     }
 
     public function packageDetails($id)
