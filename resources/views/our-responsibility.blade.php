@@ -1,6 +1,6 @@
 @extends('weblayouts.app')
 @section('title')
-    {{ 'About' }}
+    {{ 'Our Responsibility' }}
 @endsection
 @section('content')
 

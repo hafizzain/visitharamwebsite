@@ -105,6 +105,10 @@ Route::get('/travel-insurance', function () {
     return view('travel-insurance');
 })->name('travel-insurance');
 
+Route::get('/payment-security', function () {
+    return view('payment-security');
+})->name('payment-security');
+
 Route::get('/terms-conditions', function () {
     return view('/terms-conditions');
 });

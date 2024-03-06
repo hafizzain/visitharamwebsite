@@ -1,6 +1,6 @@
 @extends('weblayouts.app')
 @section('title')
-{{ 'Contact' }}
+{{ 'Faqs' }}
 @endsection
 @section('content')
 

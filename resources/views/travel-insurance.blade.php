@@ -1,6 +1,6 @@
 @extends('weblayouts.app')
 @section('title')
-    {{ 'About' }}
+    {{ 'Travel Insurance' }}
 @endsection
 @section('content')
 

@@ -12,11 +12,11 @@
                 <ul class="flex flex-col gap-2">
                     <li><a href="/about" class="hover:underline">About Us</a></li>
                     <li><a href="/contact" class="hover:underline">Contact Us</a></li>
-                    <li><a href="#" class="hover:underline">Our Team</a></li>
-                    <li><a href="#" class="hover:underline">24/7 Operations</a></li>
+{{--                    <li><a href="#" class="hover:underline">Our Team</a></li>--}}
+{{--                    <li><a href="#" class="hover:underline">24/7 Operations</a></li>--}}
                     <li><a href="/faq" class="hover:underline">FAQ’s</a></li>
-                    <li><a href="#" class="hover:underline">Visa</a></li>
-                    <li><a href="#" class="hover:underline">Beat my quote</a></li>
+{{--                    <li><a href="#" class="hover:underline">Visa</a></li>--}}
+                    <li><a href="/#qoute" class="hover:underline">Beat my quote</a></li>
                 </ul>
             </div>
             <div>
@@ -26,9 +26,9 @@
                     <li><a href="/terms-conditions" class="hover:underline">Terms And Conditions</a></li>
                     <li><a href="#" class="hover:underline">Safi Assurance</a></li>
                     <li><a href="/privacy-policy" class="hover:underline">Privacy Policy Statement</a></li>
-                    <li><a href="#" class="hover:underline">Payment Security</a></li>
+                    <li><a href="/payment-security" class="hover:underline">Payment Security</a></li>
                     <li><a href="/our-responsibility" class="hover:underline">Our Responsibility</a></li>
-                    <li><a href="#" class="hover:underline">Download</a></li>
+{{--                    <li><a href="#" class="hover:underline">Download</a></li>--}}
                 </ul>
             </div>
             <div>
