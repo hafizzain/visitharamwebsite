@@ -171,9 +171,9 @@
             @foreach (\App\Models\Category::all() as $category)
                 <li class="relative group h-full">
                     <a href="#" class="group flex items-baseline">{{ $category->name }} <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6"><path stroke="#E1C844" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg><span class="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-[#E1C844] transition-all origin-left group-hover:w-full"></span></a>
-                    <div id="{{ $category->slug }}Dropdown" class="absolute top-full left-0 z-10 hidden group-hover:block font-normal w-60">
+                    <div id="{{ $category->slug }}Dropdown" class="absolute top-full left-0 z-10 hidden group-hover:block font-normal w-[17rem]">
                         <div class="bg-transparent h-4"></div>
-                        <ul class="p-2 text-sm text-black bg-white font-normal rounded-lg shadow-md space-y-2">
+                        <ul class="p-2 text-sm text-black bg-white font-normal rounded-lg shadow-md space-y-2 w-full">
                             @foreach ($category->packages as $package)
                                 <li><a href="{{ route('packages.showDetails', ['id' => $package->id]) }}" class="block p-2 rounded-lg hover:bg-[#F3EED2]">{{ $package->name }} {{ $package->year }}</a></li>
                             @endforeach

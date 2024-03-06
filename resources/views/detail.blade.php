@@ -59,13 +59,13 @@
 
 <section>
     <div class="container mx-auto px-5 md:px-10 xl:px-24 py-2 md:pt-80 xl:pt-80 2xl:pt-72">
-        <div id="#qoute" class="shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[250px]">
+        <div id="#qoute" class="shadow-[0px_4px_50px_0px_#00000033] rounded-xl xl:rounded-[20px] xl:h-[320px]">
             <div class="xl:h-[60px] py-3 xl:py-0 bg-[#E1C844] rounded-t-xl xl:rounded-t-[20px] px-5 lg:px-8 flex items-center">
                 <p class="text-2xl font-semibold">Get Custom Quote</p>
             </div>
-            <form action="{{ route('form.submit') }}" method="POST" class="xl:h-[190px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
-                @csrf
-                <div class="flex sm:flex-nowrap flex-wrap items-center gap-3 md:gap-5">
+            <form action="{{ route('form.submit') }}" method="POST" class="xl:h-[260px] bg-white rounded-b-xl xl:rounded-b-[20px] px-5 lg:px-8 py-6 flex flex-col justify-between">
+              @csrf
+                <div class="grid sm:grid-cols-2 md:grid-cols-4 items-center gap-x-3 md:gap-x-5 gap-y-1">
                     <div class="mb-5 w-full">
                         <label for="first_name" class="block mb-1 text-sm font-medium text-[#808080] ">Your Name</label>
                         <input type="text" id="first_name" name="first_name" class=" bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5" placeholder="Enter Your Name" required />
@@ -82,8 +82,8 @@
                         <div class="w-full">
                             <div class="flex items-center">
                                 <select id="country_code" name="country_code" class="minimal w-[100px] sm:w-[70px] lg:w-[100px] xl:w-[120px] h-[36.6px] xl:h-[41.6px] bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-l-lg rounded-r-none focus:ring-[#E1C844] focus:border-[#E1C844] block p-2.5">
-                                    @foreach($dialCodes as $dialCode)
-                                        <option value="{{ $dialCode['code'] }}">+{{ $dialCode['code'] }} {{ $dialCode['iso'] }}</option>
+                                   @foreach($dialCodes as $dialCode)
+                                   <option value="{{ $dialCode['code'] }}">+{{ $dialCode['code'] }} {{ $dialCode['iso'] }}</option>
                                     @endforeach
                                 </select>
                                 <div class="relative w-full">
@@ -101,6 +101,31 @@
                             <option value="3">3</option>
                         </select>
                     </div>
+                    <div class="mb-5 w-full">
+                        <label for="kids" class="block mb-1 text-sm font-medium text-[#808080] ">Kids</label>
+                        <select id="kids" name="kids" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="mb-5 w-full">
+                        <label for="nights_in_makkah" class="block mb-1 text-sm font-medium text-[#808080] ">Nights in Makkah</label>
+                        <select id="nights_in_makkah" name="nights_in_makkah" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                    <div class="mb-5 w-full">
+                        <label for="nights_in_madina" class="block mb-1 text-sm font-medium text-[#808080] ">Nights in Madina</label>
+                        <select id="nights_in_madina" name="nights_in_madina" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+
                 </div>
                 <div class="flex gap-5 sm:gap-0 sm:flex-nowrap flex-wrap items-center justify-between">
                     <div class="flex items-center">
