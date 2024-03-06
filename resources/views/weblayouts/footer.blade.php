@@ -24,7 +24,7 @@
                 <ul class=" flex flex-col gap-2">
                     <li><a href="/travel-insurance" class="hover:underline">Travel Insurance</a></li>
                     <li><a href="/terms-conditions" class="hover:underline">Terms And Conditions</a></li>
-                    <li><a href="#" class="hover:underline">Safi Assurance</a></li>
+{{--                    <li><a href="#" class="hover:underline">Safi Assurance</a></li>--}}
                     <li><a href="/privacy-policy" class="hover:underline">Privacy Policy Statement</a></li>
                     <li><a href="/payment-security" class="hover:underline">Payment Security</a></li>
                     <li><a href="/our-responsibility" class="hover:underline">Our Responsibility</a></li>
