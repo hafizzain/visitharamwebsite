@@ -18,7 +18,7 @@
         <div class="md:col-span-4 lg:col-span-5 w-full md:pb-10">
             <div class="h-full w-full rounded-[20px] bg-white border border-[#D7D7D7] text-[#110928] p-5 lg:p-8 flex flex-col justify-between gap-2">
                 <h5 class="text-2xl lg:text-3xl font-semibold">{{$package->name}}</h5>
-                <p class="text-2xl lg:text-3xl">Price: <span class="text-[#09B175] font-semibold">£{{$package->price}}</span></p>
+                <p class="text-2xl lg:text-3xl">Price: <span class="text-[#09B175] font-semibold">Fr £{{$package->price}}</span></p>
                 <div class="grid grid-cols-2 gap-5 py-2 text-sm lg:text-base">
                     @php $counter = 0; @endphp
                     @foreach ($package->service as $service)
@@ -300,7 +300,7 @@
                 @foreach ($packages as $package)
                 <div class="swiper-slide text-[#110928] flex flex-col gap-5 items-center bg-white border border-[#C8C8C8] rounded-[20px] py-4 lg:py-7">
                     <div class="py-4 px-4 md:px-8 font-semibold text-2xl space-x-2" style="background: url('{{ asset('assets/img/header/bg.png') }}') no-repeat center/contain;">
-                        <span>£{{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
+                        <span>Fr £{{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
                     </div>
                     <h4 class="text-2xl md:text-3xl font-semibold text-center">{{$package->name}}</h4>
                     <div class="w-full">

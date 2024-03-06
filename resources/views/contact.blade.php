@@ -1,6 +1,6 @@
 @extends('weblayouts.app')
 @section('title')
-    {{ 'Contact' }}
+    {{ "Get in Touch with UK's Leading Umrah Specialists - Visit Haram" }}
 @endsection
 @section('content')
 
@@ -21,7 +21,7 @@
                 </div>
                 <div class='flex gap-5 items-start'>
                     <img src="{{ URL('assets/img/contact/phone.svg') }}" alt="phone">
-                    <p>+92 123 456 7890</p>
+                    <p>+0203 925 8000</p>
                 </div>
                 <div class='flex gap-5 items-start'>
                     <img src="{{ URL('assets/img/contact/sharp.svg') }}" alt="email">

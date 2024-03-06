@@ -1,6 +1,6 @@
 @extends('weblayouts.app')
 @section('title')
-    {{ 'About' }}
+    {{ "Get to Know the UK's Trusted Umrah Specialists - Visit Haram"}}
 @endsection
 @section('content')
 
