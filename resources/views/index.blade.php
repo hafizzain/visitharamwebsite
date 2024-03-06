@@ -80,6 +80,7 @@
                     <div class="mb-5 w-full">
                         <label for="adults" class="block mb-1 text-sm font-medium text-[#808080] ">Adults</label>
                         <select id="adults" name="adults" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="">Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -88,32 +89,37 @@
                     <div class="mb-5 w-full">
                         <label for="kids" class="block mb-1 text-sm font-medium text-[#808080] ">Kids</label>
                         <select id="kids" name="kids" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="">Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
                         </select>
                     </div>
                     <div class="mb-5 w-full">
                         <label for="nights_in_makkah" class="block mb-1 text-sm font-medium text-[#808080] ">Nights in Makkah</label>
                         <select id="nights_in_makkah" name="nights_in_makkah" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="">Select</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
                         </select>
                     </div>
                     <div class="mb-5 w-full">
                         <label for="nights_in_madina" class="block mb-1 text-sm font-medium text-[#808080] ">Nights in Madina</label>
                         <select id="nights_in_madina" name="nights_in_madina" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="">Select</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
                         </select>
                     </div>
 
                 </div>
                 <div class="flex gap-5 sm:gap-0 sm:flex-nowrap flex-wrap items-center justify-between">
                     <div class="flex items-center">
-                        <input id="default-checkbox" type="checkbox" value="" class="!shadow-none sm:w-4 sm:h-4 h-6 w-6  bg-[#F9FAFB] border border-[#D1D5DB] rounded text-blue-600" />
+                        <input id="default-checkbox" type="checkbox" name="email_checkbox" value="1" class="!shadow-none sm:w-4 sm:h-4 h-6 w-6  bg-[#F9FAFB] border border-[#D1D5DB] rounded text-blue-600" />
                         <label for="default-checkbox" class="ms-2 text-sm font-normal text-black">I want deals via phone calls and promotions through emails.</label>
                     </div>
                     <button type="submit" class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>

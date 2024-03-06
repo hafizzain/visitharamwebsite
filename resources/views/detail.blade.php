@@ -96,6 +96,7 @@
                     <div class="mb-5 w-full">
                         <label for="adults" class="block mb-1 text-sm font-medium text-[#808080] ">Adults</label>
                         <select id="adults" name="adults" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="">Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -104,6 +105,7 @@
                     <div class="mb-5 w-full">
                         <label for="kids" class="block mb-1 text-sm font-medium text-[#808080] ">Kids</label>
                         <select id="kids" name="kids" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
+                            <option value="">Select</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -112,24 +114,26 @@
                     <div class="mb-5 w-full">
                         <label for="nights_in_makkah" class="block mb-1 text-sm font-medium text-[#808080] ">Nights in Makkah</label>
                         <select id="nights_in_makkah" name="nights_in_makkah" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="">Select</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
                         </select>
                     </div>
                     <div class="mb-5 w-full">
                         <label for="nights_in_madina" class="block mb-1 text-sm font-medium text-[#808080] ">Nights in Madina</label>
                         <select id="nights_in_madina" name="nights_in_madina" class="minimal bg-gray-50 border border-gray-300 text-black placeholder:text-black text-sm rounded-lg focus:ring-[#E1C844] focus:border-[#E1C844] block w-full p-2.5">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="">Select</option>
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
                         </select>
                     </div>
 
                 </div>
                 <div class="flex gap-5 sm:gap-0 sm:flex-nowrap flex-wrap items-center justify-between">
                     <div class="flex items-center">
-                        <input id="default-checkbox" type="checkbox" value="" class="!shadow-none sm:w-4 sm:h-4 h-6 w-6  bg-[#F9FAFB] border border-[#D1D5DB] rounded text-blue-600" />
+                        <input id="default-checkbox" type="checkbox" name="email_checkbox" value="1" class="!shadow-none sm:w-4 sm:h-4 h-6 w-6  bg-[#F9FAFB] border border-[#D1D5DB] rounded text-blue-600" />
                         <label for="default-checkbox" class="ms-2 text-sm font-normal text-black">I want deals via phone calls and promotions through emails.</label>
                     </div>
                     <button type="submit" class="uppercase text-white bg-[#110928] rounded-full px-6 md:px-10 py-2">Submit Enquiry</button>
@@ -137,19 +141,19 @@
             </form>
         </div>
     </div>
-    <div class="container mx-auto px-5 sm:px-10 xl:px-24 py-2 pt-16">
-        <h2 class="text-[#110928] font-bold text-3xl text-center">Trusted Hajj and Umrah Travel Agency in the UK</h2>
-        <div class="md:px-5 xl:px-20 grid grid-cols-2 place-items-center md:flex items-center justify-between flex-wrap md:flex-nowrap md:gap-5 xl:gap-10 py-16">
-            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust1.png') }}" alt="trust1">
-            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust2.png') }}" alt="trust2">
-            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust3.png') }}" alt="trust3">
-            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust4.png') }}" alt="trust4">
-        </div>
-    </div>
+{{--    <div class="container mx-auto px-5 sm:px-10 xl:px-24 py-2 pt-16">--}}
+{{--        <h2 class="text-[#110928] font-bold text-3xl text-center">Trusted Hajj and Umrah Travel Agency in the UK</h2>--}}
+{{--        <div class="md:px-5 xl:px-20 grid grid-cols-2 place-items-center md:flex items-center justify-between flex-wrap md:flex-nowrap md:gap-5 xl:gap-10 py-16">--}}
+{{--            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust1.png') }}" alt="trust1">--}}
+{{--            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust2.png') }}" alt="trust2">--}}
+{{--            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust3.png') }}" alt="trust3">--}}
+{{--            <img class="xl:scale-100 scale-75" src="{{ URL('assets/img/trusted/trust4.png') }}" alt="trust4">--}}
+{{--        </div>--}}
+{{--    </div>--}}
 </section>
 
 <section>
-    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24 pt-10 md:pt-0">
+    <div class="container mx-auto px-5 md:px-10 xl:px-24 py-24 pt-10 md:pt-16">
 
         <div class="flex flex-col gap-10">
             @php $counter = 0; @endphp

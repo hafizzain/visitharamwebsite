@@ -16,6 +16,10 @@ class Contact extends Model
         'phone_number',
         'country_code',
         'adults',
+        'kids',
+        'nights_in_madina',
+        'nights_in_makkah',
+        'email_checkbox',
         'message',
         'type',
     ];

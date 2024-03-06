@@ -97,6 +97,14 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
+Route::get('/our-responsibility', function () {
+    return view('our-responsibility');
+})->name('our-responsibility');
+
+Route::get('/travel-insurance', function () {
+    return view('travel-insurance');
+})->name('travel-insurance');
+
 Route::get('/terms-conditions', function () {
     return view('/terms-conditions');
 });
