@@ -1,6 +1,6 @@
 @extends('weblayouts.app')
 @section('title')
-    {{ 'Home' }}
+    {{ "Tailored & Budget Friendly Umrah Solutions for UK - Visit Haram" }}
 @endsection
 @section('content')
 
@@ -32,7 +32,7 @@
                 <div id="qoute" class="flex flex-col gap-2 text-center">
                     <img class="object-cover" src="{{ URL('assets/img/partner/partner.png') }}" alt="partner">
                     <hr class="bg-black border-black">
-                    <a href="#" class="text-xl font-semibold">+92 123 456 7890</a>
+                    <a href="#" class="text-xl font-semibold">+0203 925 8000</a>
                 </div>
             </div>
         </div>
@@ -165,7 +165,7 @@
                 @foreach ($packages as $package)
                 <div class="swiper-slide text-[#110928] flex flex-col gap-5 items-center bg-white border border-[#C8C8C8] rounded-[20px] py-4 lg:py-7">
                     <div class="py-4 px-4 md:px-8 font-semibold text-2xl space-x-2" style="background: url('{{ asset('assets/img/header/bg.png') }}') no-repeat center/contain;">
-                        <span>£{{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
+                        <span>Fr £{{$package->price}}</span><span class="text-sm font-normal">{{$package->nights}} Nights</span>
                     </div>
                     <h4 class="text-2xl md:text-3xl font-semibold text-center">{{$package->name}}</h4>
                     <div class="w-full">
@@ -241,7 +241,7 @@
                         <div class="relative">
                             <img class="h-72 sm:h-56 2xl:h-72 w-72 2xl:w-64" src="{{ URL('assets/img/package/package1.png') }}" alt="qoute">
                             <div class="absolute top-0 right-0 h-20 w-20 2xl:h-24 2xl:w-24 text-sm text-white bg-[#09B175] rounded-full border-[3px] border-white flex flex-col items-center justify-center">
-                                <p class="font-bold text-lg 2xl:text-[20px]">£{{$package->price}}</p>
+                                <p class="font-bold text-lg 2xl:text-[20px]">Fr £{{$package->price}}</p>
                                 <p class="text-sm">{{$package->nights}} Nights</p>
                             </div>
                         </div>

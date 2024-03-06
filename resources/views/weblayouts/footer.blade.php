@@ -34,7 +34,7 @@
             <div>
                 <h2 class="mb-4 font-semibold text-gray-900 uppercase">Contact Info</h2>
                 <ul class="flex flex-col gap-2">
-                    <li><a href="#" class="hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-[#09B175]"></i> <span>+92 123 456 7890</span></a></li>
+                    <li><a href="#" class="hover:underline flex items-center gap-1"><i class="fa-solid fa-phone text-[#09B175]"></i> <span>+0203 925 8000</span></a></li>
                     <li><a href="#" class="hover:underline flex items-center gap-1"><i class="fa-regular fa-envelope text-[#09B175]"></i> <span style="word-break: break-word;">info@visitharam.co.uk</span></a></li>
                     <li><a href="#" class="hover:underline"><i class="fa-solid fa-location-dot text-[#09B175]"></i> 4 Novella Block, Eichmannview</a></li>
                     <li class="flex justify-start"><img class="md:scale-100 -translate-x-10 md:translate-x-0 scale-75 object-cover" src="{{ URL("assets/img/partner/partner.png") }}" alt="partner"></li>
